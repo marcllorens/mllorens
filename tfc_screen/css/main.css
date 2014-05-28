@@ -1,0 +1,339 @@
+/* CSS Document */
+
+/* INICI*/
+#fI{
+    position:absolute;             /* centre pantalla */
+    left:50%;
+    top:35%;
+    height:50px;                   
+    width:225px;                  
+   	text-align:center;
+   	padding:110px 0px 0px 0px;    
+   	margin:-115px 0px 0px -112px;
+	
+}
+
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+	
+/* TELEFON  */
+#tel_txt, #smstxt{
+	
+	text-align:center;
+	color:#06C;
+	
+	margin-top:20px;
+	font-size:18px;
+	}	
+	
+#prefix{
+	width:10%;
+	min-with:70px;
+	float:left;
+	margin: 0 30px;
+	margin-left: 17%;
+	color:#06C;
+	
+	
+	}
+	
+#tel {
+	width:40%;
+	min-with:600px;
+	margin:0 30px;
+	color:#06C;
+	
+	}
+	
+/* idioma  */
+
+#tag_dlang,#device_lang{
+	
+	float:left;
+	margin: 0 10px;
+	font-size:16px;
+	padding-bottom:10px;
+	padding-top:10px;
+	
+	}
+	
+	
+#device_lang1,#langsel{
+	
+	margin:0 50%;
+	width:40%;
+	text-align:right;
+	font-size:18px
+	color:#06C;
+	padding-bottom:10px;
+	padding-top:10px;
+	}	
+	
+/* PERFIL  */
+	
+#prf{
+	
+	width:97%;
+	font-family:helvetica, sans-serif;
+	font-size:16px
+	}
+
+
+#p1e, #p2e, #p3e, #p4e, #p5e, #p6e{
+	
+	float:left;
+	margin: 0 10px;
+	
+	}
+	
+	
+#nom, #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions{
+	
+	margin:0 40%;
+	width:55%;
+	text-align:right;
+	color:#06C;
+	}	
+
+/* GRAFIQUES */
+
+#container{
+	width:90%;
+	margin:5px 5px;}
+#table{
+	width:90%;
+	margin:5px 5px;}
+
+/*FORMULARI*/
+
+
+#field{
+	background:#FFF;
+	margin:20px 20px;
+	}
+	
+#fF{
+	display:block;	
+	}
+#Ff{
+	display:none;
+	}
+
+#ps1m, #ps1t{
+	width:30%;
+	min-with:600px;
+	float:left;
+	margin: 0 30px;
+	margin-left: 10%;
+	margin-top:10px;
+	color:#06C;
+	text-align:center;
+	
+	}
+	
+#ps2m, #ps3m,#pst1m, #pst2m, #pst3m,#ps2t, #ps3t,#pst1t, #pst2t, #pst3t{
+	width:30%;
+	min-with:600px;
+	float:left;
+	margin: 0 30px;
+	margin-left: 10%;
+	color:#06C;
+	text-align:center;
+	
+	}
+	
+	
+#pd1m, #pd2m, #pd3m,#pdt1m, #pdt2m, #pdt3m, #pd1t, #pd2t, #pd3t,#pdt1t, #pdt2t, #pdt3t{
+	width:30%;
+	min-with:600px;
+	margin: 10px;
+	color:#06C;
+	text-align:center;
+	
+	}	
+	
+#result{
+	margin:auto;
+	margin-left:30%;
+	}
+	
+#lab1 {
+	position: absolute;
+	left:30%;
+	min-with:1000px;
+	margin:auto;
+	}	
+
+	
+#date{
+	width:90%;
+	min-with:800px;
+	margin:10px;
+	}
+	
+#pahM{
+	width:90%;
+	min-with:600px;
+	margin: 20px 20%;
+	}	
+#fV{
+	width:80%;
+	min-with:700px;
+	margin:20px 20px;
+	}	
+	
+#fV,#fT,#fS{
+	width:90%;
+	min-with:800px;
+	margin:auto;
+	}
+	
+/*resultats*/
+
+#res{
+	width:50%;
+	min-with:300px;
+	margin: 0 50px;
+	}
+#resultats{
+	font:bold;
+	background:#999;
+	opacity:0.7;
+	}
+
+
+
+/* SPINNING WHEEL */
+
+#sw-wrapper {
+	position:absolute; z-index:1000;
+	left:0;
+	width:100%;
+	font-family:helvetica, sans-serif;
+	background:rgba(0,0,0,0.7);
+	text-align:left;
+}
+
+#sw-header {
+	position:relative;
+	width:100%; height:43px;
+	border-top:1px solid #000; border-bottom:1px solid #000;
+	background:url(sw-header.png) 0 0 repeat-x;
+	opacity: 0.9;
+}
+
+#sw-cancel, #sw-done {
+	position:absolute;
+	top:7px;
+	height:20px; line-height:20px;
+	padding:0 5px; margin:0;
+	border-width:5px;
+	font-size:12px; font-weight:bold;
+	text-shadow:rgba(0,0,0,0.8) 0 -1px 0;
+	color:#fff;
+}
+
+#sw-cancel {
+	left:7px;
+	float:left;
+	-webkit-border-image:url(sw-button-cancel.png) 5;
+}
+
+#sw-done {
+	right:7px;
+	float:right;
+	-webkit-border-image:url(sw-button-done.png) 5;
+}
+
+.sw-pressed { opacity:0.4; }
+
+#sw-slots-wrapper {
+	position:relative; z-index:999;
+	display:block;
+	height:215px;
+	padding:0 11px;
+	overflow:hidden;
+}
+
+#sw-slots {
+	display:table;
+	width:100%;
+	background:#fcfcfc;
+}
+
+#sw-slots div {
+	display:table-cell;
+	height:100%;
+	padding-top:86px;
+	border-left:2px solid #0d0e0f;
+	background-color:#fcfcfc;
+	background-image: url(sw-slot-border.png);
+	background-position: 0 0, 100% 0;
+	background-repeat: repeat-y;
+}
+
+#sw-slots div:first-child { border:0; }
+
+#sw-slots ul {
+	padding:0 0 85px 0; margin:0;
+	list-style:none;
+}
+
+#sw-slots .sw-right { text-align:right; }
+#sw-slots .sw-shrink { width:1%; }
+#sw-slots .sw-readonly { background:#ddd; }
+
+#sw-slots li {
+	padding:0 8px;
+	height:44px;
+	overflow:hidden;
+	font:bold 24px/44px Helvetica,sans-serif;
+}
+
+#sw-frame {
+	position:absolute; z-index:1000;
+	left:0; right:0; bottom:0;
+	height:183px;
+	border-width:16px;
+	-webkit-border-image:url(sw-alpha.png) 16;
+}
+
+
+/* TAULA  */
+
+ #datatable {
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px 10px;
+      border: 1px solid #999;
+    }
+    th {
+      background-color: #eee;
+    }
+    th[data-sort]{
+      cursor:pointer;
+    }
+    tr.awesome{
+      color: red;
+    }
+	
+
+

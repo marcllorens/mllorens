@@ -1,0 +1,420 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sreens</title>
+<link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+<link href="css/nav.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="js/graf.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+
+<!----------GRAFIQUES-------->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/data.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="jquery.highchartTable.js" ></script>
+
+<!----------WEB SERVICE DATA-------->
+
+<script type="text/javascript" language="JavaScript" src="js/server/server_pacient.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="js/server/server_graph.js"></script>
+
+
+<!----------NOTIFICACIONS-------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/local-notifications.js"></script>
+<script type="text/javascript" src="plugins/date.js"></script>
+<script type="text/javascript" src="plugins/badge.js"></script>
+<script type="text/javascript" src="js/notification.js"></script>
+
+<!----------IDIOMA-------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/jquery.i18n.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="js/lang.js"></script>
+
+
+<!--------SPINING WHEEL----------->
+
+<link rel="stylesheet" href="sw/spinningwheel.css" type="text/css" media="all" />
+    	<script type="text/javascript" src="sw/spinningwheel.js?v=1.4"></script>
+
+<!-------------SMS---------------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/smsplugin.js"></script>
+
+<!-------------FAST CLICK---------------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/fastclick.js"></script>
+
+
+<!-- CSS MENU INFERIOR-->
+ 
+<style type="text/css" id="styles" >
+
+.nav_bar .ui-btn .ui-btn-inner { padding-top: 40px !important; 
+}
+.nav_bar .ui-btn .ui-icon { 
+		width: 30px!important; 
+		height: 30px!important; 
+		margin-left: -15px !important; 
+		box-shadow: none!important; 
+		-moz-box-shadow: none!important; 
+		-webkit-box-shadow: none!important;
+		-webkit-border-radius: 0 !important; 
+		border-radius: 0 !important; 
+		}
+#mp .ui-icon { background:  url(img/icon_user.png) 50% 50% no-repeat; background-size: 38px 32px; }	
+#mf .ui-icon { background:  url(img/heart_icon&32.png) 50% 50% no-repeat;  background-size: 25px 25px; }
+#mg .ui-icon { background:  url(img/chart_line_icon&32.png) 50% 50% no-repeat;  background-size: 32px 32px; }
+#ma .ui-icon { background:  url(img/file-info.png) 50% 50% no-repeat;  background-size:32px 32px; }
+
+
+</style>
+
+</head>
+<body id="bdy">
+
+<!--INICI-->
+<div data-role="page" id="start" data-theme="d">
+
+    
+    <div id="fI">
+       	<img class="blink" src="img/heart_beat.png" width="126" height="126">
+   		<br/>
+        <br/>
+    	<div  id="blink" style="color:#06C;">
+    		<h3>CARREGANT DADES</h3>
+    	</div>	
+        
+        
+            
+         
+    </div>
+	
+</div>
+
+
+<!--TELEFON----------------------->
+
+<div data-role="page" id="tel1">
+	<div data-role="header" data-theme="b" >
+    	<a onClick="tanca()" id="back_btn" data-icon="delete" data-theme="c">Tancar</a>
+		<p align="center" id="htel1">USUARI</p>
+        <a  onClick="tel()" data-icon="arrow-r" data-theme="c"  id="telbtn" data-iconpos="right">Enviar</a>
+    </div>
+        
+    <p id="tel_txt">Introdueixi el seu telèfon</p>
+	<div data-role="content" id="fT">	
+	
+      <input type="number" id="prefix"  value="34"  required/>
+      <input type="tel" id="tel" value="677356334" placeholder="introdueixi el seu telefon" required/>
+      <hr style="margin:20px"/>
+      <p id="tag_dlang">Idioma </p>
+      <select name="langsel1" id="langsel"  onChange="selChange()" data-theme="c" style="padding-top:20px">
+         	<option value="1">Català</option>
+            <option value="2">Castellano</option>
+            <option value="3">English</option>
+       </select>
+       <hr style="margin-top:20px"/> 
+
+ 	
+	</div>
+   
+</div>
+
+
+<!-- -SMS------------------->
+    
+<div data-role="page" id="sms1">
+	<div data-role="header" data-theme="b" >
+     	<a href="#tel1" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
+		<p align="center" id="hsms">SMS</p>
+        <a  onClick="sms()" data-icon="arrow-r" data-iconpos="right" data-theme="c"  id="bSMS">Enviar</a>
+	</div>
+    <div id="smstxt">
+    	Esperi o introdueixi el codi rebut per SMS
+    </div>
+	<div data-role="content" id="fS">	
+		
+      	<input type="text" id="smsin" value="48c5" placeholder="introdueixi SMS"  style="margin-top:20px"required/>
+               
+        <img class="blink" src="img/heart_beat.png" width="110" height="110" style=" margin-left:30%; margin-top:40px" > 
+	</div>
+	
+</div>
+
+
+   
+<!--PERFIL----------------------->
+
+<div data-role="page" id="perfil" data-theme="d">
+	<div data-role="header" data-theme="b" data-id="myfoot" data-position="fixed" 	>
+    	<a href="#sms1" data-icon="arrow-l" data-theme="c">Cancel</a>
+    	<p align="center" id="header_perfil">PERFIL</p>
+        <a onClick="locals()" data-icon="delete" data-theme="c">erase</a>
+	</div>
+    
+    <img src="img/blood_drop.png" width="64" height="64" alt="perfil">
+	<div data-role="content">	
+    	<div id="prf">
+    		<p id="p1e">Nom</p><p align="right" id="nom">...</p>
+        	<hr id="barra" />
+        	<p id="p6e">Cognom</p><p align="right"  id="cognom">...</p>
+        	<hr id="barra" />
+        	<p id="p2e">Data naixement</p><p align="right"  id="birth">...</p>
+            <hr id="barra" />
+            <p id="p5e">Gènere</p><p align="right"  id="gender">...</p>
+        	<hr id="barra" />
+       		<p id="p3e">Telèfon </p><p align="right" id="telu"> ...</p>
+        	<hr id="barra" />
+        	<p id="p4e">Email</p><p align="right" id="email">...</p>
+        	<hr id="barra" />
+            
+         </div>	    
+  	</div>
+    
+    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" >
+      
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp"  data-icon="custom" >perfil</a></li>
+            	<li><a  id="mf" href="#formulari"  data-icon="custom" >mesures</a></li>
+				<li><a  id="mg" href="#grafiques" data-icon="custom">grafiques</a></li>
+           		<li><a  id="ma" href="#ajuda" data-icon="custom">ajuda</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<!--FORMULARI-------------------------->
+
+<div data-role="page" id="formulari" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
+    	<a id="cancel_btn" onClick="cancelV()" data-icon="delete" data-theme="c">Cancel</a>
+        <p align="center" id="header_mesures">MESURES</p>
+           
+        <a  href="#formVal"  data-iconpos="right" data-icon="arrow-r" id="send_btn" data-theme="c">Enviar</a>
+   </div>
+   <fieldset data-role="controlgroup" id="field" >
+   		<button id="btM" data-theme="c" onClick="openMati()">MATI</button>
+     
+     <div  data-role="content" id="fF" data-theme="c" hidden="false">
+    		<input type="number" id="ps1m" onClick="openPresio(), sel_sw(1)" readonly/>
+        	<input type="number" id="pd1m" onClick="openPresio(), sel_sw(1)" readonly />    
+            <hr />
+        	<input type="number" id="ps2m" onClick="openPresio(), sel_sw(2)" readonly />
+        	<input type="number" id="pd2m" onClick="openPresio(), sel_sw(2)" readonly />    
+            <hr />
+        	<input type="number" id="ps3m" onClick="openPresio(), sel_sw(3)" readonly /> 
+        	<input type="number" id="pd3m" onClick="openPresio(), sel_sw(3)" readonly />
+      </div>
+      <button id="btT"  data-theme="c" onClick="openTarda()">TARDA</button>
+       
+   	  <div  data-role="content" id="Ff"  data-theme="c" hidden="true" >
+   			<input type="number" id="ps1t"  onClick="openPresio(), sel_sw(4)" readonly />
+            <input type="number" id="pd1t" onClick="openPresio(), sel_sw(4)"readonly  />    
+           <hr />
+            <input type="number" id="ps2t" onClick="openPresio(), sel_sw(5)" readonly />
+            <input type="number" id="pd2t" onClick="openPresio(), sel_sw(5)" readonly  />    
+            <hr />
+            <input type="number" id="ps3t" onClick="openPresio(), sel_sw(6)" readonly /> 
+            <input type="number" id="pd3t" onClick="openPresio(), sel_sw(6)" readonly />
+      </div>
+      <button id="btS" data-theme="c" onClick="sendV()">ENVIAR</button>
+    </fieldset>
+    
+  
+    
+	<div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot" data-theme="b" >
+     	<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul> 
+       			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
+            	<li><a  id="mf"   data-icon="custom" >mesures</a></li>
+				<li><a  id="mg" href="#grafiques" data-icon="custom">grafiques</a></li>
+            	<li><a  id="ma" href="#ajuda" data-icon="custom">ajuda</a></li>
+			</ul>
+		</div>
+	</div>
+ </div> 
+ 
+ <!--popups------------------------------>
+ 
+ <p id="popup" value="Ompliu tots els camps siusplau"/p>
+ <p id="popup1" value="Usuari desactivat. No pot enviar dades"/p>
+ <input  type="number" id="pos" readonly/>
+ 
+ 
+<!--GRAFIQUES------------------------------>
+
+
+
+<div data-role="page" id="grafiques" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed"  data-id="myfoot" data-tap-toggle="false">
+  		<p align="center" id="header_graph">   Gràfiques  </p>
+	</div>
+	<div data-role="content" >  
+    <div id="grtxt">
+    aquesta grafica es carrega segons la taula de sota que seria la que ens envia el servidor
+    </div>
+    <div id="container" > </div> 
+   
+   <div id="table"> </div>
+   
+    <table  id="datatable" >
+  <thead>
+    <tr>
+    	<th>data</th>
+      <th>Sistòlica (mm Hg)</th>
+      <th>Diastòlica (mm Hg)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="taula_a_1">dilluns</td>
+      <td id="taula_s_1">1</td>
+      <td id="taula_d_1">1</td>
+    </tr>
+  <tr>
+      <td>dimarts</td>
+      <td>133</td>
+      <td>85</td>
+    </tr>
+    <tr>
+ <td>dimecres</td>
+      <td>134</td>
+      <td>79</td>
+    </tr>
+  <tr>
+      <td>dijous</td>
+      <td>133</td>
+      <td>80</td>
+    </tr>
+  <tr>
+      <td>divendres</td>
+      <td>140</td>
+      <td>90</td>
+    </tr>
+    <tr>
+ 		<td>disabte</td>
+      <td>139</td>
+      <td>85</td>
+    </tr>
+    <tr>
+    <td>diumenge</td>
+      <td>146</td>
+      <td>78</td>
+    </tr>
+  </tbody>
+</table>    
+
+ 
+
+</div>
+
+	
+	 <div class="nav_bar" data-position="fixed" data-role="footer" data-id="myfoot"  data-theme="b" data-tap-toggle="false" >
+	<div data-role="navbar" class="nav_bar" data-grid="c" >
+		<ul>
+       		<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
+            <li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
+			<li><a  id="mg"  data-icon="custom">grafiques</a></li>
+            <li><a  id="ma" href="#ajuda" data-icon="custom">ajuda</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+
+<!--AJUDA----------------------------->
+
+<div id="ajuda" data-role="page" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot">
+		<p align="center" id="header_ajuda">Ajuda</p>
+	</div>
+	<div data-role="content">	
+		<a href="http://www.google.cat">ajuda</a>
+        <div id="ajuda_txt">
+        pantalla amb ajudes a l'aplicació i potser els enllaços que deies a videos diversos 
+        </div>
+        	</div>
+	
+	 <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" >
+    
+	<div data-role="navbar" class="nav_bar" data-grid="c" >
+		<ul>
+       		<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
+            <li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
+			<li><a  id="mg" href="#grafiques" data-icon="custom" data-direction="reverse">grafiques</a></li>
+            <li><a  id="ma"  data-icon="custom">ajuda</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+
+<!--VALIDACIÓ------------------------>
+
+<div data-role="page" id="formVal" data-theme="d" >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot">
+    <a data-rel="back" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
+          <p align="center" id="header_validacio" >VALIDACIÓ</p>
+           
+         <a   onClick="ok()"  data-iconpos="right" data-icon="arrow-r"  id="rsend_btn" data-theme="c">Enviar</a>
+		
+	</div> 
+
+	<div data-role="content" id="fV" data-theme="c">
+    <p id="tM"> MATI</p>
+    <input  id="pst1m" readonly required/>
+    <input  id="pdt1m" readonly required/>
+    <hr />
+    <input  id="pst2m" readonly required/>
+    <input  id="pdt2m" readonly required/>
+    <hr />
+    <input  id="pst3m" readonly required/>
+    <input  id="pdt3m" readonly required/>
+    <p id="tT"> TARDA</p>
+    <input  id="pst1t" readonly required/>
+    <input  id="pdt1t" readonly required/>
+    <hr />
+    <input  id="pst2t" readonly required/>
+    <input  id="pdt2t" readonly required/>
+    <hr />
+    <input  id="pst3t" readonly required/>
+    <input  id="pdt3t" readonly required/>
+
+	</div>
+	
+</div>
+
+<!--RESULTATS -------------------------->
+
+<div data-role="page" id="resultat" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot">
+		<p align="center" id="header_resultats">Resultats</p><a   href="#grafiques" data-iconpos="right" data-icon="check"  id="resend_btn"  data-theme="c">OK</a>
+	</div>
+	<div data-role="content" >
+    <p id="resultats">Les seves pressions han estat rebudes correctament</p>
+    <div id="res">
+    <img id="sem" src="img/blood_drop.png" width="64" height="64"  hidden="true">
+    <img id="sem1" src="img/file-info.png" width="64" height="64" hidden="true" >
+    </div>
+
+    <p id="valoracio"> Tot va bé</p>
+    <p id="recordatori"> Recordi pendre's la presió i enviar els controls</p>
+     
+	</div>
+	
+</div>
+
+</body>
+</html>
