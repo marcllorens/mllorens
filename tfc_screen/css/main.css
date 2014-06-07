@@ -80,19 +80,29 @@
 	margin:0 50%;
 	width:40%;
 	text-align:right;
-	font-size:18px
+	font-size:18px;
 	color:#06C;
 	padding-bottom:10px;
 	padding-top:10px;
 	}	
 	
 /* PERFIL  */
+
+#smallImage{
+	border: 2px #ddd solid;
+    border-radius: 20px;
+    padding: -10px;
+	margin-top:10px;
+	margin-left:5px;
+	margin-bottom: 15px;
+	}
+
 	
 #prf{
 	
 	width:97%;
 	font-family:helvetica, sans-serif;
-	font-size:16px
+	font-size:16px;
 	}
 
 
@@ -114,13 +124,27 @@
 
 /* GRAFIQUES */
 
+
+
+#grtxt{
+	text-align:center;
+	color:#06C;
+	font-weight:bold;
+	margin-top:20px;
+	margin-bottom:10px;
+	font-size:18px;
+	}
+	
+
 #container{
 	width:90%;
-	margin:5px 5px;}
-#table{
-	width:90%;
-	margin:5px 5px;}
-
+	margin:0 5px;
+	}
+#grf_table{
+	width:100%;
+	margin-bottom:40px;
+	margin-left:20px;}
+	
 /*FORMULARI*/
 
 
@@ -194,31 +218,62 @@
 	margin: 20px 20%;
 	}	
 #fV{
-	width:80%;
+	width:100%;
 	min-with:700px;
-	margin:20px 20px;
+	margin:auto;
 	}	
 	
-#fV,#fT,#fS{
+#fT,#fS{
 	width:90%;
 	min-with:800px;
 	margin:auto;
 	}
 	
+
 /*resultats*/
 
+#field1{
+	width:100%;
+	}
+	
 #res{
-	width:50%;
-	min-with:300px;
-	margin: 0 50px;
+	width:10%;
+	min-with:35px;
+	margin-top:10px;
+	margin-left: 20px;
+	float:left;
 	}
 #resultats{
-	font:bold;
-	background:#999;
-	opacity:0.7;
+	border: 2px #ddd solid;
+    border-radius: 20px;
+    padding: 20px;
+	
+	text-shadow:none;
+	background:#E2E2E2;
+	
 	}
-
-
+#valoracio{
+	border: 2px #ddd solid;
+    border-radius: 20px;
+    padding: 20px;
+	/*float:right;*/
+	width:70%;
+	margin-top: 22px;
+	margin-left:70px;
+	text-shadow:none;
+	background:#AFA;
+	
+	}
+#recordatori{
+	border: 2px #ddd solid;
+    border-radius: 20px;
+    padding: 20px;
+	text-shadow:none;
+	background:#CCC;
+	font-weight:bold;
+	/*float:left;*/
+	
+	}
 
 /* SPINNING WHEEL */
 
@@ -318,22 +373,24 @@
 
 /* TAULA  */
 
- #datatable {
+table {
       border-collapse: collapse;
+	  width:90%;
+	  padding-right:15px;
     }
-    th, td {
+th, td {
       padding: 5px 10px;
       border: 1px solid #999;
-    }
-    th {
+ 	}
+th {
       background-color: #eee;
     }
-    th[data-sort]{
+/*th[data-sort]{
       cursor:pointer;
     }
-    tr.awesome{
+tr.awesome{
       color: red;
-    }
+    }*/
 	
 
 

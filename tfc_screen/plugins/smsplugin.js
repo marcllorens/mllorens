@@ -6,16 +6,19 @@ SmsPlugin.prototype.send = function (phone, message, method, successCallback, fa
 
 //Check if the device has a possibility to send and receive SMS
 SmsPlugin.prototype.isSupported = function(successCallback,failureCallback) {
+	alert("isSuported");
     return cordova.exec(successCallback, failureCallback, 'SmsPlugin', 'HasSMSPossibility', []);
 };
 
 //Start receiving sms, and the successCallback function receives one string as parameter formatted such as [phonenumber]>[message]
 SmsPlugin.prototype.startReception = function(successCallback,failureCallback) {
+	alert("startreception");
     return cordova.exec(successCallback, failureCallback, 'SmsPlugin', 'StartReception', []);
 };
 
 //Stop receiving sms
 SmsPlugin.prototype.stopReception = function(successCallback,failureCallback) {
+	alert("stopreception");
     return cordova.exec(successCallback, failureCallback, 'SmsPlugin', 'StopReception', []);
 };
 

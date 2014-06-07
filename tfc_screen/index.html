@@ -51,6 +51,18 @@
 <!-------------SMS---------------->
 
 <script type="text/javascript" language="JavaScript" src="plugins/smsplugin.js"></script>
+<script type="text/javascript" language="JavaScript" src="plugins/SmsInboxPlugin.js"></script>
+
+
+<!-------------ISCROLL---------------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/iscroll.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="plugins/jquery-mobile-iscrollview.js"></script>
+
+<!-------------CAMARA--------------->
+
+<script type="text/javascript" language="JavaScript" src="camera/camera.js"></script>
 
 <!-------------FAST CLICK---------------->
 
@@ -96,8 +108,6 @@
     		<h3>CARREGANT DADES</h3>
     	</div>	
         
-        
-            
          
     </div>
 	
@@ -117,7 +127,7 @@
 	<div data-role="content" id="fT">	
 	
       <input type="number" id="prefix"  value="34"  required/>
-      <input type="tel" id="tel" value="677356334" placeholder="introdueixi el seu telefon" required/>
+      <input type="tel" id="tel" value="699688245" placeholder="introdueixi el seu telefon" required/>
       <hr style="margin:20px"/>
       <p id="tag_dlang">Idioma </p>
       <select name="langsel1" id="langsel"  onChange="selChange()" data-theme="c" style="padding-top:20px">
@@ -157,21 +167,22 @@
    
 <!--PERFIL----------------------->
 
-<div data-role="page" id="perfil" data-theme="d">
-	<div data-role="header" data-theme="b" data-id="myfoot" data-position="fixed" 	>
-    	<a href="#sms1" data-icon="arrow-l" data-theme="c">Cancel</a>
+<div data-role="page" id="perfil" data-theme="d" data-tap-toggle="false" >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot"   >
     	<p align="center" id="header_perfil">PERFIL</p>
         <a onClick="locals()" data-icon="delete" data-theme="c">erase</a>
 	</div>
     
-    <img src="img/blood_drop.png" width="64" height="64" alt="perfil">
-	<div data-role="content">	
+    <div data-role="content" data-iscroll>
+ 
+ <img style="width:94px;height:94px;" id="smallImage" placeholder="afegir imatge" onClick="capturePhoto()">
+ 		
     	<div id="prf">
     		<p id="p1e">Nom</p><p align="right" id="nom">...</p>
         	<hr id="barra" />
         	<p id="p6e">Cognom</p><p align="right"  id="cognom">...</p>
         	<hr id="barra" />
-        	<p id="p2e">Data naixement</p><p align="right"  id="birth">...</p>
+        	<p id="p2e">Data naixement</p><p align="right" id="birth" >...</p>
             <hr id="barra" />
             <p id="p5e">Gènere</p><p align="right"  id="gender">...</p>
         	<hr id="barra" />
@@ -179,13 +190,14 @@
         	<hr id="barra" />
         	<p id="p4e">Email</p><p align="right" id="email">...</p>
         	<hr id="barra" />
-            
+            <p hidden="true" id="notificacions"></p>
          </div>	    
   	</div>
     
+    
     <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" >
       
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
+		<div data-role="navbar" class="nav_bar" data-grid="c">
 			<ul>
        			<li><a  id="mp"  data-icon="custom" >perfil</a></li>
             	<li><a  id="mf" href="#formulari"  data-icon="custom" >mesures</a></li>
@@ -199,14 +211,15 @@
 
 <!--FORMULARI-------------------------->
 
-<div data-role="page" id="formulari" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
+<div data-role="page" id="formulari" data-theme="d" data-tap-toggle="false">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
     	<a id="cancel_btn" onClick="cancelV()" data-icon="delete" data-theme="c">Cancel</a>
         <p align="center" id="header_mesures">MESURES</p>
            
-        <a  href="#formVal"  data-iconpos="right" data-icon="arrow-r" id="send_btn" data-theme="c">Enviar</a>
+        <a  href="#ampa" data-iconpos="right" data-icon="arrow-r" id="send_btn" data-theme="c">Info</a>
    </div>
-   <fieldset data-role="controlgroup" id="field" >
+   <div id="scrl" data-iscroll>
+   <fieldset data-role="controlgroup" id="field">
    		<button id="btM" data-theme="c" onClick="openMati()">MATI</button>
      
      <div  data-role="content" id="fF" data-theme="c" hidden="false">
@@ -233,10 +246,10 @@
       </div>
       <button id="btS" data-theme="c" onClick="sendV()">ENVIAR</button>
     </fieldset>
-    
+    </div>
   
     
-	<div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot" data-theme="b" >
+	<div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot" data-theme="b"data-tap-toggle="false" data-transition="none"  >
      	<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul> 
        			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
@@ -250,147 +263,99 @@
  
  <!--popups------------------------------>
  
- <p id="popup" value="Ompliu tots els camps siusplau"/p>
- <p id="popup1" value="Usuari desactivat. No pot enviar dades"/p>
- <input  type="number" id="pos" readonly/>
+ <p id="popup" value="Ompliu tots els camps siusplau" hidden="true"/p>
+ <p id="popup1" value="Usuari desactivat. No pot enviar dades" hidden="true"/p>
+ 
+ <p id="graf_ta_data" value="Data" hidden="true"/p>
+ <p id="graf_ta_sis" value="Sistòlica" hidden="true"/p>
+ <p id="graf_ta_dia" value="Diastòlica" hidden="true"/p>
+ <p id="graf_pa" value="Pressió arterial (mm Hg)" hidden="true"/p>
+ 
+<!-- <input  type="number" id="pos" readonly/>-->
  
  
 <!--GRAFIQUES------------------------------>
 
-
-
-<div data-role="page" id="grafiques" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed"  data-id="myfoot" data-tap-toggle="false">
-  		<p align="center" id="header_graph">   Gràfiques  </p>
+<div data-role="page" id="grafiques" data-theme="d" data-tap-toggle="false">
+	<div data-role="header" data-theme="b" data-position="fixed"  data-id="myfoot" data-tap-toggle="false" data-transition="none" >
+  		<p align="center" id="header_graph">  Evolució del pacient  </p>
 	</div>
-	<div data-role="content" >  
-    <div id="grtxt">
-    aquesta grafica es carrega segons la taula de sota que seria la que ens envia el servidor
-    </div>
-    <div id="container" > </div> 
-   
-   <div id="table"> </div>
-   
-    <table  id="datatable" >
-  <thead>
-    <tr>
-    	<th>data</th>
-      <th>Sistòlica (mm Hg)</th>
-      <th>Diastòlica (mm Hg)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="taula_a_1">dilluns</td>
-      <td id="taula_s_1">1</td>
-      <td id="taula_d_1">1</td>
-    </tr>
-  <tr>
-      <td>dimarts</td>
-      <td>133</td>
-      <td>85</td>
-    </tr>
-    <tr>
- <td>dimecres</td>
-      <td>134</td>
-      <td>79</td>
-    </tr>
-  <tr>
-      <td>dijous</td>
-      <td>133</td>
-      <td>80</td>
-    </tr>
-  <tr>
-      <td>divendres</td>
-      <td>140</td>
-      <td>90</td>
-    </tr>
-    <tr>
- 		<td>disabte</td>
-      <td>139</td>
-      <td>85</td>
-    </tr>
-    <tr>
-    <td>diumenge</td>
-      <td>146</td>
-      <td>78</td>
-    </tr>
-  </tbody>
-</table>    
-
- 
-
-</div>
-
-	
-	 <div class="nav_bar" data-position="fixed" data-role="footer" data-id="myfoot"  data-theme="b" data-tap-toggle="false" >
-	<div data-role="navbar" class="nav_bar" data-grid="c" >
-		<ul>
-       		<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
-            <li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
-			<li><a  id="mg"  data-icon="custom">grafiques</a></li>
-            <li><a  id="ma" href="#ajuda" data-icon="custom">ajuda</a></li>
-		</ul>
+	<div data-role="content" data-iscroll>  
+    	<div id="grtxt"></div>
+   		<div id="grf_table"> </div>
+        <div id="container" > </div> 
 	</div>
+
+	<div class="nav_bar" data-position="fixed" data-role="footer" data-id="myfoot"  data-theme="b" data-transition="none" data-tap-toggle="false">
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
+            	<li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
+				<li><a  id="mg"  data-icon="custom">grafiques</a></li>
+            	<li><a  id="ma" href="#ajuda" data-icon="custom">ajuda</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
 <!--AJUDA----------------------------->
 
-<div id="ajuda" data-role="page" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot">
+<div id="ajuda" data-role="page" data-theme="d" data-tap-toggle="false">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
 		<p align="center" id="header_ajuda">Ajuda</p>
 	</div>
-	<div data-role="content">	
-		<a href="http://www.google.cat">ajuda</a>
-        <div id="ajuda_txt">
-        pantalla amb ajudes a l'aplicació i potser els enllaços que deies a videos diversos 
-        </div>
-        	</div>
+	<div data-role="content" data-iscroll>	
+		<ul data-role="listview">
+   			<li><a href="#ampa"> Ampa</a></li>
+            <li><a href="http://www.google.cat">ajuda</a></li>
+            <li><a href="#prova_sms"> prova sms</a></li>
+  		</ul>
+        <div id="ajuda_txt">...</div>
+        
+     </div>
 	
-	 <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" >
+	 <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" data-tap-toggle="false" data-transition="none"  >
     
-	<div data-role="navbar" class="nav_bar" data-grid="c" >
-		<ul>
-       		<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
-            <li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
-			<li><a  id="mg" href="#grafiques" data-icon="custom" data-direction="reverse">grafiques</a></li>
-            <li><a  id="ma"  data-icon="custom">ajuda</a></li>
-		</ul>
-	</div>
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
+            	<li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
+				<li><a  id="mg" href="#grafiques" data-icon="custom" data-direction="reverse">grafiques</a></li>
+            	<li><a  id="ma"  data-icon="custom">ajuda</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
 <!--VALIDACIÓ------------------------>
 
 <div data-role="page" id="formVal" data-theme="d" >
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot">
-    <a data-rel="back" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
-          <p align="center" id="header_validacio" >VALIDACIÓ</p>
-           
-         <a   onClick="ok()"  data-iconpos="right" data-icon="arrow-r"  id="rsend_btn" data-theme="c">Enviar</a>
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"   >
+    	<a data-rel="back" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
+        <p align="center" id="header_validacio" >VALIDACIÓ</p>
+        <a   onClick="ok()"  data-iconpos="right" data-icon="arrow-r"  id="rsend_btn" data-theme="c">Enviar</a>
 		
 	</div> 
 
-	<div data-role="content" id="fV" data-theme="c">
-    <p id="tM"> MATI</p>
-    <input  id="pst1m" readonly required/>
-    <input  id="pdt1m" readonly required/>
-    <hr />
-    <input  id="pst2m" readonly required/>
-    <input  id="pdt2m" readonly required/>
-    <hr />
-    <input  id="pst3m" readonly required/>
-    <input  id="pdt3m" readonly required/>
-    <p id="tT"> TARDA</p>
-    <input  id="pst1t" readonly required/>
-    <input  id="pdt1t" readonly required/>
-    <hr />
-    <input  id="pst2t" readonly required/>
-    <input  id="pdt2t" readonly required/>
-    <hr />
-    <input  id="pst3t" readonly required/>
-    <input  id="pdt3t" readonly required/>
+	<div data-role="content" id="fV" data-theme="c" data-iscroll>
+    	<p id="tM"> MATI</p>
+    	<input  id="pst1m" readonly required/>
+    	<input  id="pdt1m" readonly required/>
+    	<hr />
+    	<input  id="pst2m" readonly required/>
+    	<input  id="pdt2m" readonly required/>
+    	<hr />
+    	<input  id="pst3m" readonly required/>
+    	<input  id="pdt3m" readonly required/>
+    	<p id="tT"> TARDA</p>
+    	<input  id="pst1t" readonly required/>
+    	<input  id="pdt1t" readonly required/>
+    	<hr />
+    	<input  id="pst2t" readonly required/>
+    	<input  id="pdt2t" readonly required/>
+    	<hr />
+    	<input  id="pst3t" readonly required/>
+    	<input  id="pdt3t" readonly required/>
 
 	</div>
 	
@@ -399,22 +364,88 @@
 <!--RESULTATS -------------------------->
 
 <div data-role="page" id="resultat" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot">
-		<p align="center" id="header_resultats">Resultats</p><a   href="#grafiques" data-iconpos="right" data-icon="check"  id="resend_btn"  data-theme="c">OK</a>
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+		<p align="center" id="header_resultats">Resultats</p>
+        <a   href="#grafiques" data-iconpos="right" data-icon="check"  id="resend_btn"  data-theme="c">OK</a>
 	</div>
-	<div data-role="content" >
-    <p id="resultats">Les seves pressions han estat rebudes correctament</p>
-    <div id="res">
-    <img id="sem" src="img/blood_drop.png" width="64" height="64"  hidden="true">
-    <img id="sem1" src="img/file-info.png" width="64" height="64" hidden="true" >
-    </div>
-
-    <p id="valoracio"> Tot va bé</p>
-    <p id="recordatori"> Recordi pendre's la presió i enviar els controls</p>
-     
-	</div>
-	
+	<div data-role="content" data-iscroll>
+    
+    <div id="field1" >
+    	<p id="resultats">Les seves pressions han estat rebudes correctament</p>
+    	<div id="res">
+    		<img id="sem_gr" src="img/semafor_green.jpg" width="35" height="64"  hidden="true">
+    		<img id="sem_rd" src="img/semafor_red.jpg" width="35" height="64" hidden="true" >
+            <img id="sem_yw" src="img/semafor_yellow.jpg" width="35" height="64" hidden="true" >
+    	</div>
+		
+    	<p id="valoracio"> Tot va bé</p>
+        <!--<hr id="barra" />-->
+    	<p id="recordatori"> Recordi pendre's la pressió i enviar els controls</p>
+      
+     	</div>
+	</div>	
 </div>
+
+<!--AMPA -------------------------->
+
+<div data-role="page" id="ampa" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+		<p align="center" id="header_ampa">AMPA</p>
+        <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
+	</div> 
+	<div data-role="content" data-iscroll>
+    	<p id="ampa_postura_h" style="font-weight:bold">Postura:</p>
+    	<p id="ampa_postura">Assegut o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.
+Adoptar una postura còmoda i relaxada.
+No creuar les cames.</p>
+		<p id="ampa_condicions_h" style="font-weight:bold"> Condicions:</p>
+    	<p id="ampa_condicions">No haver pres cafè, alcohol, menjat, fumat o fet exercici una hora abans de prendre la pressió.
+No prendre la pressió amb la bufeta plena.
+Evitar sorolls i situacions estressants.
+Cal estar en repòs al menys cinc minuts abans de la mesura.</p>
+		<p id="ampa_manegot_h" style="font-weight:bold"> Manegot:</p>
+    	<p id="ampa_manegot">Cal posar-lo 2-3 cm per sobre de la flexura del colze.
+Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.</p>
+     
+	</div>	
+</div>
+
+
+<div data-role="page" id="prova_sms" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+		<p align="center" id="header_prova_sms">PROVA SMS</p>
+        <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
+	</div> 
+    
+	<div data-role="content" >
+    <button onClick="prova_sms()">sms</button>
+    
+	<script>
+	var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
+	 smsInboxPlugin.isSupported ((function(supported) {
+    if(supported) 
+      alert("SMS supported !");
+    else
+      alert("SMS not supported");
+  }), function() {
+    alert("Error while checking the SMS support");
+  });
+  smsInboxPlugin.startReception (function(msg) {
+    alert(msg);
+  }, function() {
+    alert("Error while receiving messages");
+  });
+	
+	smsInboxPlugin.stopReception (function() {
+    alert("Correctly stopped");
+  }, function() {
+    alert("Error while stopping the SMS receiver");
+  });
+	</script>
+     
+	</div>	
+</div>
+
 
 </body>
 </html>

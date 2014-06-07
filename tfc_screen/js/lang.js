@@ -15,7 +15,7 @@ function inicilang(){
 				$('#langsel > option[value="3"]').attr('selected', 'selected');
 				localStorage.setItem('lang',3);
 			}
-			
+			selMain()
 	});
 	
 }
@@ -35,13 +35,14 @@ function selChange(){
 		}
 		else{
 		localStorage.setItem('lang',3);
-		}		
+		}	
+		selMain()	
 };
 
 //DICCIONARI
 	
 function selMain(){
-	
+		
 		var valor=localStorage.getItem('lang');
 		if(valor==1){
 		$.i18n.load(i18n_dict_ca);
@@ -80,6 +81,10 @@ function selMain(){
 		//grafiques
 		$('p#header_graph')._t('header_graph');
 		$('div#grtxt')._t('grtxt');
+		$('p#graf_ta_data')._t('graf_ta_data');
+		$('p#graf_ta_sis')._t('graf_ta_sis');
+		$('p#graf_ta_dia')._t('graf_ta_dia');
+		$('p#graf_pa')._t('graf_pa');
 		//ajuda
 		$('p#header_ajuda')._t('header_ajuda');
 		$('div#ajuda_txt')._t('ajuda_txt');
@@ -94,6 +99,14 @@ function selMain(){
 		$('p#resultats')._t('resultats');
 		$('p#valoracio')._t('valoracio');
 		$('p#recordatori')._t('recordatori');
+		//AMPA
+		$('p#header_ampa')._t('header_ampa');
+		$('p#ampa_postura_h')._t('ampa_postura_h');
+		$('p#ampa_postura')._t('ampa_postura');
+		$('p#ampa_condicions_h')._t('ampa_condicions_h');
+		$('p#ampa_condicions')._t('ampa_condicions');
+		$('p#ampa_manegot_h')._t('ampa_manegot_h');
+		$('p#ampa_manegot')._t('ampa_manegot');
 		//inici
 		//$('div#blink')._t('blink');
 		//telefon
@@ -104,8 +117,7 @@ function selMain(){
 		$('div#hsms')._t('hsms');
 		$('div#smstxt')._t('smstxt');
 		$('button#bSMS')._t('bSMS');
-			
-	
+
 	};
 	
 	
@@ -130,15 +142,19 @@ function selMain(){
 		//mesures
 		"header_mesures":"MESURES",
 		"cancel_btn":"Erase",
-		"send_btn":"Send",
+		"send_btn":"Info",
 		"btM":"MORNING",
 		"btT":"AFTERNOON",
 		"btS":"SEND",
 		"popup":"Fill all the fields, please",
 		"popup1":"Disable user. You can't send data",
 		//grafiques
-		"header_graph":"GRAPHS",
-		"grtxt":"This graph it charges from the server",
+		"header_graph":"Patient evolution",
+		"grtxt":"",
+		"graf_ta_data":"Date",
+		"graf_ta_sis":"Systolic",
+		"graf_ta_dia":"Diastolic",
+		"graf_pa":"Aterial Pressure (mm Hg)",
 		//ajuda
 		"header_ajuda":"HELP",
 		"ajuda_txt":"screen with app help",
@@ -153,6 +169,14 @@ function selMain(){
 		"resultats":"Your blood presures have been received OK",
 		"valoracio":"Everything OK",
 		"recordatori":"Remember to take your presure and send the controls",
+		//ampa
+		"header_ampa":"AMPA",
+		"ampa_postura_h":"Postura:",
+		"ampa_postura":"Assegut o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.Adoptar una postura còmoda i relaxada.No creuar les cames.",
+		"ampa_condicions_h":"Condicions:",
+		"ampa_condicions":"No haver pres cafè, alcohol, menjat, fumat o fet exercici una hora abans de prendre la pressió.No prendre la pressió amb la bufeta plena.Evitar sorolls i situacions estressants.Cal estar en repòs al menys cinc minuts abans de la mesura.",
+		"ampa_manegot_h":"Manegot:",
+		"ampa_manegot":"Cal posar-lo 2-3 cm per sobre de la flexura del colze.Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.",
 		//inici
 		"blink":"CHARGING DATA",
 		//telefon
@@ -187,15 +211,19 @@ function selMain(){
 		//mesures
 		"header_mesures":"MEDIDAS",
 		"cancel_btn":"Borrar",
-		"send_btn":"Enviar",
+		"send_btn":"Info",
 		"btM":"MAÑANA",
 		"btT":"TARDE",
 		"btS":"ENVIAR",
 		"popup":"Llene todos los campos porfavor",
 		"popup1":"Usuario desactivado. No puede enviar datos",
 		//grafiques
-		"header_graph":"GRAFICAS",
-		"grtxt":"Esta grafica se carga segun la tabla de abajo que seria la que no envia el servidor",
+		"header_graph":"Evolucion del paciente",
+		"grtxt":"",
+		"graf_ta_data":"Data",
+		"graf_ta_sis":"Sistòlica",
+		"graf_ta_dia":"Diastòlica",
+		"graf_pa":"Pressió arterial(mm Hg)",
 		//ajuda
 		"header_ajuda":"AYUDA",
 		"ajuda_txt":"pantalla con ayudas a la aplicaion y con enlaces a los videos",
@@ -210,6 +238,14 @@ function selMain(){
 		"resultats":"Sus presiones han sido recibidas correctamente",
 		"valoracio":"Todo va bien",
 		"recordatori":"Recuerde tomarse la tensión y enviar los controles",
+		//ampa
+		"header_ampa":"AMPA",
+		"ampa_postura_h":"Postura:",
+		"ampa_postura":"o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.Adoptar una postura còmoda i relaxada.No creuar les cames.",
+		"ampa_condicions_h":"Condiciones:",
+		"ampa_condicions":"No haver pres cafè, alcohol, menjat, fumat o fet exercici una hora abans de prendre la pressió.No prendre la pressió amb la bufeta plena.Evitar sorolls i situacions estressants.Cal estar en repòs al menys cinc minuts abans de la mesura.",
+		"ampa_manegot_h":"Manguito:",
+		"ampa_manegot":"Cal posar-lo 2-3 cm per sobre de la flexura del colze.Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.",
 		//inici		
 		"blink":"CARGANDO DATOS",
 		//telefon
@@ -247,15 +283,19 @@ function selMain(){
 		//mesures
 		"header_mesures":"MESURES",
 		"cancel_btn":"Esborrar",
-		"send_btn":"Enviar",
+		"send_btn":"Info",
 		"btM":"MATI",
 		"btT":"TARDA",
 		"btS":"ENVIAR",
 		"popup":"Ompliu tots els camps de pressió siusplau",
 		"popup1":"Usuari desactivat. No pot enviar dades",
 		//grafiques
-		"header_graph":"GRAFIQUES",
-		"grtxt":"Equesta grafica es carrega segons la taula de sota que seria la que ens envia el servidor",
+		"header_graph":"Evolució del pacient",
+		"grtxt":"",
+		"graf_ta_data":"Fecha",
+		"graf_ta_sis":"Sistolica",
+		"graf_ta_dia":"Diastolica",
+		"graf_pa":"Pressió arterial(mm Hg)",
 		//ajuda
 		"header_ajuda":"AJUDA",
 		"ajuda_txt":"pantalla amb ajudes a l'aplicació i potser els enllaços que deies a videos diversos ",
@@ -269,7 +309,15 @@ function selMain(){
 		"header_resultats":"RESULTATS",
 		"resultats":"Les seves pressions han estat rebudes correctament",
 		"valoracio":"Tot va bé",
-		"recordatori":"Recordi pendre's la presió i enviar els controls",
+		"recordatori":"Recordi pendre's la pressió i enviar els controls",
+		//ampa
+		"header_ampa":"AMPA",
+		"ampa_postura_h":"Postura:",
+		"ampa_postura":"Assegut o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.Adoptar una postura còmoda i relaxada.No creuar les cames.",
+		"ampa_condicions_h":"Condicions:",
+		"ampa_condicions":"No haver pres cafè, alcohol, menjat, fumat o fet exercici una hora abans de prendre la pressió.No prendre la pressió amb la bufeta plena.Evitar sorolls i situacions estressants.Cal estar en repòs al menys cinc minuts abans de la mesura.",
+		"ampa_manegot_h":"Manegot:",
+		"ampa_manegot":"Cal posar-lo 2-3 cm per sobre de la flexura del colze.Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.",
 		//inici
 		"blink":"CARREGANT DADES",
 		//telefon

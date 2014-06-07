@@ -1,24 +1,18 @@
-
-
-$(function () {
-    // create the chart
-	
+function grph(){
+    
     $('#container').highcharts({
 		
         chart: {
-			type: 'spline',
-            events: {
-                redraw: function() {
-                  
-                }
-            }
+			type: 'spline'
         },
 		
 		data: {
-            table: document.getElementById('datatable')
+            table: document.getElementById('grf_table')
         },
+		
+		exporting: {enabled: false},
        title: {
-            text: 'Evolucio del pacient'
+            text: ''
         },
         yAxis: {
 			 
@@ -26,23 +20,40 @@ $(function () {
                 color: 'red',
                 width: 2,
                 value:80,// document.getElementById('ps1m'),
-                dashStyle: 'ShortDash'
+                dashStyle: 'ShortDash',
+				label : {
+						text : 'PAD'
+					}
             },{
 					value :150,//document.getElementById('pd1m'),
 					color : 'red',
 					dashStyle : 'shortdash',
 					width : 2,
 					label : {
-						text : 'PAD'
+						text : 'PAS'
 					}
 				}],
             allowDecimals: false,
             title: {
-                text: 'Pressió arterial (mm Hg)'
+                text: document.getElementById('graf_pa').value
             }
         },
 		credits: {
             enabled: false
+        },
+		 legend: {
+            align: 'left',
+		    layout: 'vertical',
+            backgroundColor: '#FFFFFF',
+			borderRadius: 5,
+            borderWidth: 1,
+            verticalAlign: 'top',
+            x: 64,
+            y: -10,
+            floating: true,
+			 labelFormatter: function() {
+                return this.name;
+            }
         },
 		tooltip: {
             formatter: function() {
@@ -51,9 +62,4 @@ $(function () {
             }
         }
     });
-});
-
-function rdw(){
- $('#container').highcharts().redraw();
-};
-      
+}

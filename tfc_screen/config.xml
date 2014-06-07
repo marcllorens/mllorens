@@ -8,7 +8,7 @@
     <name>tfc screen</name>
 
     <description>
-        presió arterial app
+        pressió arterial app
     </description>
 
     <author href="" email="">
@@ -18,10 +18,22 @@
 	
 	<!--icones-->	
 	
-	<icon src="img/bluestyle-02-heart.png" gap:platform="android" width="97" height="97" />
-    <icon src="img/bluestyle-02-heart.png" gap:platform="ios" width="97" height="97" />
+	<icon src="img/blue.png" gap:platform="android" width="97" height="97" />
+    <icon src="img/blue.png" gap:platform="ios" width="100" height="100" />
 	
+   
+    <!-- splash screen. -->
 	
+	 <gap:splash gap:density="ldpi" gap:platform="android" src="img/splash/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="img/splash/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="img/splash/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="img/splash/android/screen-xhdpi-portrait.png" />
+    
+    <gap:splash gap:platform="ios" height="480" src="img/splash/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="img/splash/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="img/splash/ios/screen-ipad-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="img/splash/ios/screen-ipad-landscape.png" width="1024" />
+
     
 
 	<!--permisos-->
@@ -70,6 +82,9 @@
 	<gap:plugin name="de.appplant.cordova.plugin.badge" />
 	<!-- sms plugins -->
 	<gap:plugin name="info.asankan.phonegap.smsplugin" />
+	<feature name="SmsInboxPlugin">
+        <param name="android-package" value="org.apache.cordova.plugin.SmsInboxPlugin" />
+    </feature>
 	
 	
     <access origin="*"/>

@@ -1,26 +1,35 @@
 
-function server_graph(token){
+function server_graph(token,lang){
 	
-
 $.getJSON('http://shuite.hesoftgroup.com:8070/hypertensionBloodPressure/restList/'+ token, function(data){
-	
-	
-	$("#table").html("<table id='data_table'></table>");
-	
-	$("#data_table").append("<tr><th>Data</th><th>Sistòlica (mm Hg)</th><th>Diastòlica (mm Hg)</th></tr>");
-	alert(data.systole);
-	
-	$.each(data, function(){
-		alert(data.class.systole);
-		$("#data_table").append("<tr><td>"+data.class.dataTaken[0]+"</td><td>"+data.class.systole[1]+"</td><td>"+data.class.diastole[2]+"</td></tr>");
 
-	});
-    /*document.getElementById('taula_a_1').value =  graph.dateTaken;
-	document.getElementById('taula_d_1').value =  graph.diastole;
-	document.getElementById('taula_s_1').value =  graph.systole;
-	document.getElementById('taula_a_2').value =  graph.dateTaken;
-	document.getElementById('taula_d_2').value =  graph.diastole;
-	document.getElementById('taula_s_2').value =  graph.systole;*/
+	if( lang==1){
+		var lng="Diastòlica";
+		var lngs="Sistòlica";
+		var lngd="Data";
+	}else if( lang==2){
+		var lng="Diastolica";
+		var lngs="Sistolica";
+		var lngd="Fecha";			
+	}else {
+		var lng="Dyastolic";
+		var lngs="Systolic";
+		var lngd="Date";
+	};
+	
+	 var table ='<table> ';
+	 table+='<tr><th>' + lngd + '</th><th>' + lngs + '</th><th>' + lng + '</th></tr>';
+     $.each( data, function( index, item){
+		var taken= (item.dateTaken).split('T');
+		var data = taken[0].split('-');
+		
+   	    table+='<tr><td>'+data[2]+'/'+data[1]+'</td><td>'+item.systole+'</td><td>'+item.diastole+'</td></tr>';
+     });
+     table+='</table>';
+	 
+     $("#grf_table").html(table);	
+		
+	 grph();
 });
 
 }
