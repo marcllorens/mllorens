@@ -58,20 +58,21 @@ if(pqst==1){ //setmanal
 			
 function setmanal(t2,t3){
 		
-		window.plugin.notification.local.add({ message: "inici setmanal"});
+		window.plugin.notification.local.add({ title:document.getElementById('noti_ti').innerHTML,
+			 message: document.getElementById('noti_mi').innerHTML});
 	
 		window.plugin.notification.local.add({
 			 id:      1,
-			 title:   'Recordatori',
-			 message: 'Recordi enviar la pressió',
+			 title:   document.getElementById('noti_ti').innerHTML,
+			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
 			 repeat:  'weekly',
 			 date:    t2
 			});
 		window.plugin.notification.local.add({
 			 id:      2,
-			 title:   'Recordatori',
-			 message: 'Recordi enviar la pressió',
+			 title:   document.getElementById('noti_ti').innerHTML,
+			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
 			 repeat:  'weekly',
 			 date:    t3
@@ -85,16 +86,16 @@ function quinzenal(t2,t3){
 		
 		window.plugin.notification.local.add({
 			 id:      1,
-			 title:   'Recordatori',
-			 message: 'Recordi enviar la pressió',
+			 title:   document.getElementById('noti_ti').innerHTML,
+			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
 			 repeat:  'monthly',
 			 date:    t2
 			});
 		window.plugin.notification.local.add({
 			 id:      2,
-			 title:   'Recordatori',
-			 message: 'Recordi enviar la pressió',
+			 title:   document.getElementById('noti_ti').innerHTML,
+			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
 			 repeat:  'monthly',
 			 date:    t3

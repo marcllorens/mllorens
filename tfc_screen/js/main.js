@@ -7,7 +7,6 @@ function inici() {
  	//splash screen
 	navigator.splashscreen.hide();
 	
-
 	
 	//eliminar 300ms wait
 	$(function() {
@@ -24,28 +23,24 @@ function inici() {
 	
 	// COMPROVACIO TOKEN
 	
-	var ltoken = localStorage.getItem('token') || '<empty>';
+	var ltoken = localStorage.getItem('token') || '<empty>'; 
 	
    	if(ltoken=='<empty>' || null){
-		inicilang();
+		inicilang(); //idioma
+   		$.mobile.changePage("#tel1");
 		setTimeout(
  		 function() {
-    		$.mobile.changePage("#tel1");
-  			}, 3000);
+    		alert(document.getElementById("desc_txt").innerHTML);		
+	  			}, 500);
 		//$.mobile.changePage("#tel1");
 	}else{
 		selMain();
-		var lang=localStorage.getItem('lang');
 		server_pacient(ltoken);
-		server_graph(ltoken,lang);
-		
+		server_graph(ltoken);
 		document.getElementById("smallImage").src= localStorage.getItem('photo') || '<empty>';
-		setTimeout(
- 		 function() {
-    		$.mobile.changePage("#formulari");
-  			}, 3000);
-		//$.mobile.changePage("#formulari");
-	}
+    	$.mobile.changePage("#formulari");
+		}
+
 		
 };
 
@@ -78,11 +73,14 @@ function sms(){
 	$.getJSON(arxiuValidacio, function(server){
 		
 			var token = server.uuid;
-			var lang=localStorage.getItem('lang');
 			localStorage.setItem("token", token);
 			inici_server_pacient(token);
-			server_graph(token, lang);
-		   	$.mobile.changePage("#perfil");	
+			server_graph(token);
+			setTimeout(
+ 		 	function() {
+			 $.mobile.changePage("#perfil");	
+  			},100);
+		   	
 			
 	});
 	
@@ -160,18 +158,19 @@ function ok(){
 	$(document.getElementById('sem_gr')).hide();
 	$(document.getElementById('sem_yw')).hide();
 	element.style.background='#F66';
-	element.innerHTML = 'Hem vist els seus registres, no es preocupi li avançarem la visita.';
+	//element.innerHTML = 'Hem vist els seus registres, no es preocupi li avançarem la visita.';
+	element.innerHTML = document.getElementById('result_ko').innerHTML;
 	}else if(document.getElementById('pdt1t').value<85){
 	$(document.getElementById('sem_gr')).show();
 	$(document.getElementById('sem_rd')).hide();
 	$(document.getElementById('sem_yw')).hide();
 	element.style.background='#AFA';
-	element.innerHTML = 'Tot va be';	
+	element.innerHTML = document.getElementById('result_ok').innerHTML;
 	}else{$(document.getElementById('sem_yw')).show();
 	$(document.getElementById('sem_rd')).hide();
 	$(document.getElementById('sem_gr')).hide();
 	element.style.background='#FF9';
-	element.innerHTML = 'Tot igual';	
+	element.innerHTML = document.getElementById('result_idem').innerHTML;	
 	}
 	cancelV();
 	$.mobile.changePage('#resultat');
@@ -309,3 +308,49 @@ function locals(){localStorage.clear();}
 function goBack() {
     window.history.back()
 }
+
+//ajuda navegacio
+
+function x1(){
+	document.getElementById('ajn_perfil_h').hidden=false;
+	document.getElementById('ajn_perfil').hidden=false;
+	document.getElementById('ajn_mesures_h').hidden=true;
+	document.getElementById('ajn_mesures').hidden=true;
+	document.getElementById('ajn_graf_h').hidden=true;
+	document.getElementById('ajn_graf').hidden=true;
+	document.getElementById('ajn_help_h').hidden=true;
+	document.getElementById('ajn_help').hidden=true;
+	}
+	
+function x2(){
+	document.getElementById('ajn_perfil_h').hidden=true;
+	document.getElementById('ajn_perfil').hidden=true;
+	document.getElementById('ajn_mesures_h').hidden=false;
+	document.getElementById('ajn_mesures').hidden=false;
+	document.getElementById('ajn_graf_h').hidden=true;
+	document.getElementById('ajn_graf').hidden=true;
+	document.getElementById('ajn_help_h').hidden=true;
+	document.getElementById('ajn_help').hidden=true;
+	}
+	
+function x3(){
+	document.getElementById('ajn_perfil_h').hidden=true;
+	document.getElementById('ajn_perfil').hidden=true;
+	document.getElementById('ajn_mesures_h').hidden=true;
+	document.getElementById('ajn_mesures').hidden=true;
+	document.getElementById('ajn_graf_h').hidden=false;
+	document.getElementById('ajn_graf').hidden=false;
+	document.getElementById('ajn_help_h').hidden=true;
+	document.getElementById('ajn_help').hidden=true;
+	}
+	
+function x4(){
+	document.getElementById('ajn_perfil_h').hidden=true;
+	document.getElementById('ajn_perfil').hidden=true;
+	document.getElementById('ajn_mesures_h').hidden=true;
+	document.getElementById('ajn_mesures').hidden=true;
+	document.getElementById('ajn_graf_h').hidden=true;
+	document.getElementById('ajn_graf').hidden=true;
+	document.getElementById('ajn_help_h').hidden=false;
+	document.getElementById('ajn_help').hidden=false;
+	}

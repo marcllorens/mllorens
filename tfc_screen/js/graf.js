@@ -19,7 +19,7 @@ function grph(){
 			plotLines: [{ 
                 color: 'red',
                 width: 2,
-                value:80,// document.getElementById('ps1m'),
+                value:80,// document.getElementById('ps1m').innerHTML,
                 dashStyle: 'ShortDash',
 				label : {
 						text : 'PAD'
@@ -35,7 +35,7 @@ function grph(){
 				}],
             allowDecimals: false,
             title: {
-                text: document.getElementById('graf_pa').value
+                text: null//document.getElementById('graf_pa').innerHTML
             }
         },
 		credits: {
