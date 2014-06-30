@@ -31,14 +31,17 @@ function inici() {
 		setTimeout(
  		 function() {
     		alert(document.getElementById("desc_txt").innerHTML);		
-	  			}, 500);
+	  			}, 600);
 		//$.mobile.changePage("#tel1");
 	}else{
 		selMain();
 		server_pacient(ltoken);
 		server_graph(ltoken);
 		document.getElementById("smallImage").src= localStorage.getItem('photo') || '<empty>';
-    	$.mobile.changePage("#formulari");
+    	setTimeout(
+ 		 	function() {
+			 $.mobile.changePage("#formulari");	
+  			},600);
 		}
 
 		
@@ -53,7 +56,7 @@ function tel(){
 	var prefix = $(document.getElementById("prefix")).val();
 	var telefon = $(document.getElementById("tel")).val();
 	
-	arxiuValidacio = "http://shuite.hesoftgroup.com:8070/hypertensionPatient/restValidateMobile/"+prefix;// + telefon;  
+	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateMobile/"+prefix;// + telefon;  
 	
 	$.getJSON(arxiuValidacio);
 	$.mobile.changePage("#sms1");
@@ -68,7 +71,7 @@ function sms(){
 	var telefon = $(document.getElementById("tel")).val();
 	var code= $(document.getElementById("smsin")).val();
 	
-	arxiuValidacio = "http://shuite.hesoftgroup.com:8070/hypertensionPatient/restValidateCode/" + prefix + telefon + "?code=" + code;
+	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateCode/" + prefix + telefon + "?code=" + code;
 	
 	$.getJSON(arxiuValidacio, function(server){
 		
@@ -89,8 +92,8 @@ function sms(){
 
 // FORMULARI 
 
-function sendV(){
-
+function sendV(){ //obrir pàgina de validació
+	
 	if(document.getElementById('notificacions').value ==0){alert(document.getElementById('popup1').innerHTML);}
 	else if((document.getElementById('pd1m').value == null || document.getElementById('pd1m').value == '') ||(document.getElementById('pd2m').value == null || document.getElementById('pd2m').value == '')||(document.getElementById('pd3m').value == null || document.getElementById('pd3m').value == '')||(document.getElementById('pd1t').value == null || document.getElementById('pd1t').value == '')||(document.getElementById('pd2t').value == null || document.getElementById('pd2t').value == '')||(document.getElementById('pd3t').value == null || document.getElementById('pd3t').value == '')){ alert(document.getElementById('popup').innerHTML); }
 	else{ 
@@ -116,7 +119,7 @@ function sendV(){
 	
 };
 
-function cancelV(){
+function cancelV(){ //esborrar valors del formulari
 	
 	$(document.getElementById('ps1m').value= null);
 	$(document.getElementById('pd1m').value= null);
@@ -136,6 +139,7 @@ function cancelV(){
 };
 
 
+//efecte toggle
  
 function openMati(){
 		$(document.getElementById('fF')).toggle(200);
@@ -152,15 +156,18 @@ function openTarda(){
 
 function ok(){
 	
+	alert(document.getElementById('patientStatus').value);
+	alert(document.getElementById('infoLink').value);
+	
 	var element = document.getElementById('valoracio');
-	if(document.getElementById('pdt1t').value>85){
+	
+	if(document.getElementById('patientStatus').value=1){
 	$(document.getElementById('sem_rd')).show();
 	$(document.getElementById('sem_gr')).hide();
 	$(document.getElementById('sem_yw')).hide();
 	element.style.background='#F66';
-	//element.innerHTML = 'Hem vist els seus registres, no es preocupi li avançarem la visita.';
 	element.innerHTML = document.getElementById('result_ko').innerHTML;
-	}else if(document.getElementById('pdt1t').value<85){
+	}else if(document.getElementById('patientStatus').value=0){
 	$(document.getElementById('sem_gr')).show();
 	$(document.getElementById('sem_rd')).hide();
 	$(document.getElementById('sem_yw')).hide();
@@ -172,7 +179,7 @@ function ok(){
 	element.style.background='#FF9';
 	element.innerHTML = document.getElementById('result_idem').innerHTML;	
 	}
-	cancelV();
+	cancelV(); //esborra formulari
 	$.mobile.changePage('#resultat');
 	window.plugin.notification.badge.clear(); //elimina badge notification en enviar
 };
@@ -192,7 +199,7 @@ function sel_sw(p){
 
 function openPresio() {
 	
-	off();
+	off(); //deshabilitar textbox
 	
 	
 	var sistolica = { };
@@ -354,3 +361,5 @@ function x4(){
 	document.getElementById('ajn_help_h').hidden=false;
 	document.getElementById('ajn_help').hidden=false;
 	}
+	
+	

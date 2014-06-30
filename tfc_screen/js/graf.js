@@ -3,7 +3,7 @@ function grph(){
     $('#container').highcharts({
 		
         chart: {
-			type: 'spline'
+			zoomType: 'x'
         },
 		
 		data: {

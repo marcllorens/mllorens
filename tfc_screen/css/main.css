@@ -145,8 +145,8 @@ s@keyframes fade {
 	}
 #grf_table{
 	width:100%;
-	margin-bottom:40px;
-	margin-left:20px;}
+	margin-left:20px;
+	margin-top:30px}
 	
 /*FORMULARI*/
 
@@ -253,18 +253,18 @@ s@keyframes fade {
 	
 	text-shadow:none;
 	background:#E2E2E2;
-	
 	}
+	
+	
 #valoracio{
 	border: 2px #ddd solid;
     border-radius: 20px;
     padding: 20px;
-	/*float:right;
-	width:70%;*/
+	background:#AFA;
 	margin-top: 24px;
 	margin-left:70px;
 	text-shadow:none;
-	background:#AFA;
+	
 	
 	}
 #recordatori{
@@ -297,7 +297,19 @@ th {
 	
 /*botons superiors*/
 
-#back_btn, #bSMS, #cancel_btn, #send_btn, #rsend_btn {
+#back_btn, #cancel_btn, #send_btn, #rsend_btn {
+	
+	top:10px;
+	width:85px;
+	height:30px; 
+	line-height:20px;
+	padding:2px 2px; 
+	margin:0;
+	font-size:12px; 
+	
+}
+
+ #bSMS{
 	
 	top:10px;
 	width:90px;
@@ -320,5 +332,18 @@ th {
 	font-size:12px; 
 	float:right;
 	right:7px;
+	
+}
+
+#aa {
+	
+	top:10px;
+	height:0px; 
+	width:0px;
+	line-height:0px;
+	padding:2px 2px;
+	margin:0;
+	font-size:0px; 
+	
 	
 }

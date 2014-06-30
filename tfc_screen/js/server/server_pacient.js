@@ -1,6 +1,6 @@
 function inici_server_pacient(token){
-	;
-$.getJSON('http://shuite.hesoftgroup.com:8070/hypertensionPatient/restShow/'+ token, function(perfil){
+	
+$.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, function(perfil){
     
 	document.getElementById('nom').innerHTML =  perfil.name;
 	document.getElementById('cognom').innerHTML = perfil.firstSurname ;
@@ -22,7 +22,7 @@ $.getJSON('http://shuite.hesoftgroup.com:8070/hypertensionPatient/restShow/'+ to
 
 function server_pacient(token){
 
-$.getJSON('http://shuite.hesoftgroup.com:8070/hypertensionPatient/restShow/'+ token, function(perfil){
+$.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, function(perfil){
     
 	document.getElementById('nom').innerHTML =  perfil.name;
 	document.getElementById('cognom').innerHTML = perfil.firstSurname ;

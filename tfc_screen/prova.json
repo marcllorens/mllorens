@@ -1,0 +1,15 @@
+    var a={
+	"uuid":"9abbd984-fb2b-4790-9e0e-46ac158a9126",
+	"systole1m":180,
+	"systole2m":178,
+	"systole3m":181,
+	"systole1n":170,
+	"systole2n":171,
+	"systole3n":175,
+	"diastole1m":80,
+	"diastole2m":82,
+	"diastole3m":87,
+	"diastole1n":81,
+	"diastole2n":88,
+	"diastole3n":82
+	}

@@ -28,6 +28,8 @@
 
 <script type="text/javascript" language="JavaScript" src="js/server/server_graph.js"></script>
 
+<script type="text/javascript" language="JavaScript" src="js/server/server_send.js"></script>
+
 
 <!----------NOTIFICACIONS-------->
 
@@ -121,7 +123,7 @@
 
 <div data-role="page" id="tel1">
 	<div data-role="header" data-theme="b" >
-        <a id="aa" hidden="true"></a>
+        <a id="aa" hidden="true" ></a>
 		<p align="center" id="htel1">REGISTRE</p>
         <a  onClick="tel()" data-icon="arrow-r" style="margin-top:5px;" data-theme="c"  id="tele_btn" data-iconpos="right">OK</a>
     </div>
@@ -130,7 +132,7 @@
 	<div data-role="content" id="fT">	
    
       <input type="number" id="prefix"  value="34"  required/>
-      <input type="tel" id="tel" value="699688245" placeholder="introdueixi el seu telefon" required/>
+      <input type="tel" id="tel" value="677356334" placeholder="introdueixi el seu telefon" required/>
       <hr style="margin:20px"/>
       <p id="tag_dlang">Idioma </p>
       <select name="langsel1" id="langsel"  onChange="selChange()" data-theme="c" style="padding-top:20px">
@@ -159,7 +161,7 @@
     </div>
 	<div data-role="content" id="fS">	
 		
-      	<input type="text" id="smsin" value="48c5" placeholder="introdueixi SMS"  style="margin-top:20px"required/>
+      	<input type="text" id="smsin" value="4790" placeholder="introdueixi SMS"  style="margin-top:20px"required/>
                
         <img class="blink" src="img/heart_beat.png" width="110" height="110" style=" margin-left:30%; margin-top:40px" > 
 	</div>
@@ -275,8 +277,8 @@
 	</div>
 	<div data-role="content" data-iscroll>  
     	<div id="grtxt"></div>
-   		<div id="grf_table"> </div>
         <div id="container" > </div> 
+   		<div id="grf_table"> </div>
 	</div>
 
 	<div class="nav_bar" data-position="fixed" data-role="footer" data-id="myfoot"  data-theme="b" data-transition="none" data-tap-toggle="false">
@@ -299,10 +301,10 @@
 	</div>
 	<div data-role="content" data-iscroll>	
 		<ul data-role="listview">
-   			<li><a href="#ampa"> A.M.P.A.</a></li>
+   			<li><a href="#ampa">Com pendre la pressió</a></li>
             <li><a href="#videos"> VIDEOS</a></li>
             <li><a href="#prova_sms"> prova sms</a></li>
-            <li><a id="ajuda_nav" href="#ajuda_navy"> Ajuda utilització</a></li>
+            <li><a id="ajuda_nav" href="#ajuda_navy"> Consells utilització</a></li>
   		</ul>
      </div>
 	
@@ -364,7 +366,7 @@
     
     	<div id="field1" >
     		<p id="resultats">Les seves pressions han estat rebudes correctament</p>
-        
+        	
     		<div id="res">
     			<img id="sem_gr" src="img/semafor_green.jpg" width="35" height="64"  hidden="true">
     			<img id="sem_rd" src="img/semafor_red.jpg" width="35" height="84" hidden="true" >
@@ -372,6 +374,7 @@
     		</div>
 		
     	    <p id="valoracio"> ...</p>
+           
         </div>
         
     	<p id="recordatori"> Recordi pendre's la pressió i enviar els controls</p>
@@ -442,16 +445,20 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
 		<p align="center" id="header_videos">VIDEOS</p>
         <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
 	</div> 
-	<div data-role="content" data-iscroll>	
+	<div data-role="content" >	
 		<ul data-role="listview">
-   			<li><a href="http://www.google.cat">VID1</a></li>
-            <li><a href="http://www.google.cat">VID2</a></li>
-            <li><a href="http://www.google.cat">VID3</a></li>
-            <li><a href="http://www.google.cat">VID4</a></li>
+   			
+           <li><iframe src="http://www.youtube.com/embed/qoXcpt58wik" frameborder="0" allowfullscreen></iframe></li>
+           
+            <li><iframe src="http://www.youtube.com/embed/wXDEhqKCa5I" frameborder="0" allowfullscreen></iframe></li>
+            <li><iframe src="http://www.youtube.com/embed/' + document.getElementById('infoLink').value'"  frameborder="0" allowfullscreen></iframe></li>
   		</ul>
 	</div>
+    
+    
 </div>
 
+ 
 <!--popups------------------------------>
  
  <p id="popup" value="Ompliu tots els camps siusplau" hidden="true"/p>
@@ -463,7 +470,7 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
  <p id="graf_ta_si" value="Sistòlica" hidden="true"/p>
  <p id="graf_ta_di" value="Diastòlica" hidden="true"/p>
  <p id="noti_ti" value="Recordatori" hidden="true"/p>
- <p id="noti_mi" value="Recrdi enviar les pressions" hidden="true"/p>
+ <p id="noti_mi" value="Recordi enviar les pressions" hidden="true"/p>
  <p id="graf_pa" value="Pressió arterial (mm Hg)" hidden="true"/p>
  
 <!--resultats------------------------------>
@@ -477,9 +484,14 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
  <p id="gender_m" value="Masculí" hidden="true"/p>
  <p id="gender_f" value="Femení" hidden="true"/p>
  
- <!--descàrrec-->
+<!--descàrrec-->
 
  <p id="desc_txt" value="prova text descàrreg" hidden="true"/p>
+ 
+<!--patient status-->
+
+ <p id="patientStatus" value="" hidden="true"/p>
+ <p id="infoLink" value="" hidden="true"/p>
          
 
  
