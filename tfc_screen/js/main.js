@@ -1,24 +1,31 @@
 //INICIALITZACIO
 
+
+// BACK BUTTON
+//$(window).on("navigate", function (event, data) {
+ // var direction = data.state.direction;
+  //if (direction == 'back') {
+    // do something
+ // }
+//});  //  \back button
+
+
+
 document.addEventListener("deviceready", inici, false);
 
 function inici() { 
-
- 	//splash screen
-	navigator.splashscreen.hide();
 	
+	panel(2);
+	
+ 	//splash screen
+	
+	navigator.splashscreen.hide();
 	
 	//eliminar 300ms wait
 	$(function() {
-    FastClick.attach(document.body);
+		new FastClick(document.body);
+  // FastClick.attach(document.body);
 	});
-	
-	//sms
-	
-	
-	
-	
-	
 	
 	
 	// COMPROVACIO TOKEN
@@ -27,27 +34,21 @@ function inici() {
 	
    	if(ltoken=='<empty>' || null){
 		inicilang(); //idioma
-   		$.mobile.changePage("#tel1");
-		setTimeout(
- 		 function() {
-    		alert(document.getElementById("desc_txt").innerHTML);		
-	  			}, 600);
-		//$.mobile.changePage("#tel1");
+		alert(document.getElementById("desc_txt").innerHTML); //text descàrrec
+		setTimeout(function(){$.mobile.changePage("#tel1");}, 800);
+		
 	}else{
 		selMain();
-		server_pacient(ltoken);
-		server_graph(ltoken);
-		document.getElementById("smallImage").src= localStorage.getItem('photo') || '<empty>';
-    	setTimeout(
- 		 	function() {
-			 $.mobile.changePage("#formulari");	
-  			},600);
-		}
-
+		server_pacient(ltoken);  //dades pacient
+		server_graph(ltoken);  //dades gràfica	
+		document.getElementById("smallImage").src= localStorage.getItem('photo') || '<empty>'; //foto
+    	setTimeout(function(){$.mobile.changePage("#formulari");}, 1200);
 		
-};
+		//$.mobile.changePage("#formulari");
+		}
+	
 
-
+}; //  /inici
 
 // COMPROVACIO TELEFON
 
@@ -61,7 +62,7 @@ function tel(){
 	$.getJSON(arxiuValidacio);
 	$.mobile.changePage("#sms1");
 
-};
+}; //  /comprovacio telèfon
 
 // COMPROVACIÓ SMS
 
@@ -79,22 +80,19 @@ function sms(){
 			localStorage.setItem("token", token);
 			inici_server_pacient(token);
 			server_graph(token);
-			setTimeout(
- 		 	function() {
-			 $.mobile.changePage("#perfil");	
-  			},100);
-		   	
-			
+			$.mobile.changePage("#perfil");	
+				
 	});
 	
-};
+}; //  /comprovacio sms
+
 
 
 // FORMULARI 
 
 function sendV(){ //obrir pàgina de validació
 	
-	if(document.getElementById('notificacions').value ==0){alert(document.getElementById('popup1').innerHTML);}
+	/*if(document.getElementById('notificacions').value ==0){alert(document.getElementById('popup1').innerHTML);}
 	else if((document.getElementById('pd1m').value == null || document.getElementById('pd1m').value == '') ||(document.getElementById('pd2m').value == null || document.getElementById('pd2m').value == '')||(document.getElementById('pd3m').value == null || document.getElementById('pd3m').value == '')||(document.getElementById('pd1t').value == null || document.getElementById('pd1t').value == '')||(document.getElementById('pd2t').value == null || document.getElementById('pd2t').value == '')||(document.getElementById('pd3t').value == null || document.getElementById('pd3t').value == '')){ alert(document.getElementById('popup').innerHTML); }
 	else{ 
 	
@@ -110,14 +108,12 @@ function sendV(){ //obrir pàgina de validació
 	document.getElementById('pst2t').value=document.getElementById('ps2t').value;
 	document.getElementById('pdt2t').value=document.getElementById('pd2t').value;
 	document.getElementById('pst3t').value=document.getElementById('ps3t').value;
-	document.getElementById('pdt3t').value=document.getElementById('pd3t').value;
+	document.getElementById('pdt3t').value=document.getElementById('pd3t').value;*/
 	$.mobile.changePage('#formVal');
 	
-	}
+	//}
 	
-	
-	
-};
+};  //  /obrir pag validació
 
 function cancelV(){ //esborrar valors del formulari
 	
@@ -156,11 +152,7 @@ function openTarda(){
 
 function ok(){
 	
-	alert(document.getElementById('patientStatus').value);
-	alert(document.getElementById('infoLink').value);
-	
 	var element = document.getElementById('valoracio');
-	
 	if(document.getElementById('patientStatus').value=1){
 	$(document.getElementById('sem_rd')).show();
 	$(document.getElementById('sem_gr')).hide();
@@ -181,6 +173,8 @@ function ok(){
 	}
 	cancelV(); //esborra formulari
 	$.mobile.changePage('#resultat');
+	setTimeout(function(){alert(document.getElementById("resultats").innerHTML); }, 200);
+	//alert(document.getElementById("resultats").innerHTML); //pressions rebudes
 	window.plugin.notification.badge.clear(); //elimina badge notification en enviar
 };
 function no(){
@@ -192,20 +186,15 @@ function sel_sw(p){
 	};
 
 
-
 // SPINNING WHEEL
-
-
 
 function openPresio() {
 	
 	off(); //deshabilitar textbox
-	
-	
+
 	var sistolica = { };
 	var diastolica = { };
-	
-	
+
 	for( var i = 50; i < 250; i += 1 ) {
 		sistolica[i] = i;
 	}
@@ -214,8 +203,8 @@ function openPresio() {
 		diastolica[i] = i;
 	}
 
-	SpinningWheel.addSlot(sistolica, 'center', 135);
-	SpinningWheel.addSlot(diastolica, 'center', 85);
+	SpinningWheel.addSlot(sistolica, 'center', 130); //pas
+	SpinningWheel.addSlot(diastolica, 'center', 80); //pad
 	
 	SpinningWheel.setCancelAction(cancel);
 	SpinningWheel.setDoneAction(done);
@@ -256,13 +245,15 @@ function done() {
 			document.getElementById('pd3t').value = results.dist.join(' ') ;
 			break;
 	}
-   on();
+   on(); //habilitar textbox
 }
 
 function cancel() {
-	on();
+	on(); //habilitar textbox
 	return false;
 }
+
+//habilitar textbox
 
 function on(){
 	document.getElementById('ps1m').disabled=false;
@@ -280,6 +271,9 @@ function on(){
 	document.getElementById('cancel_btn').disabled=false;
 	
 	};
+	
+//deshabilitar textbox
+
 function off(){
 	document.getElementById('ps1m').disabled=true;
 	document.getElementById('pd1m').disabled=true;
@@ -296,7 +290,7 @@ function off(){
 	document.getElementById('cancel_btn').disabled=true;
 	};
 
-
+//   /spining wheel
 
 window.addEventListener('load', function(){ setTimeout(function(){ window.scrollTo(0,0); }, 100); }, true);
 
@@ -363,3 +357,18 @@ function x4(){
 	}
 	
 	
+// MENU LATERAL
+	
+function panel(a){
+		
+	if ( a==2){
+   		$("#panel").animate({left:"-200px"});
+		$("#resultat").animate({left:"0"});	
+		$("#grafiques1").animate({left:"0"});	
+  	}else{  
+  		$("#panel").animate({left:"0"});
+		$("#resultat").animate({left:"+200px"});	
+		$("#grafiques1").animate({left:"+200px"});		
+ 	}
+}
+ 	

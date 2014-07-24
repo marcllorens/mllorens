@@ -80,11 +80,6 @@
 	<!-- local notification plugins -->
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
 	<gap:plugin name="de.appplant.cordova.plugin.badge" />
-	<!-- sms plugins -->
-	<gap:plugin name="info.asankan.phonegap.smsplugin" />
-	<feature name="SmsInboxPlugin">
-        <param name="android-package" value="org.apache.cordova.plugin.SmsInboxPlugin" />
-    </feature>
 	
 	
     <access origin="*"/>

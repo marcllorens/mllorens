@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+<link href="css/nav.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="js/graf.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+
+<!----------GRAFIQUES-------->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/data.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="jquery.highchartTable.js" ></script>
+
+<!----------WEB SERVICE DATA-------->
+
+<script type="text/javascript" language="JavaScript" src="js/server/server_pacient.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="js/server/server_graph.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="js/server/server_send.js"></script>
+
+
+<!----------NOTIFICACIONS-------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/local-notifications.js"></script>
+<script type="text/javascript" src="plugins/date.js"></script>
+<script type="text/javascript" src="plugins/badge.js"></script>
+<script type="text/javascript" src="js/notification.js"></script>
+
+<!----------IDIOMA-------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/jquery.i18n.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="js/lang.js"></script>
+
+
+<!--------SPINING WHEEL----------->
+
+<link rel="stylesheet" href="sw/spinningwheel.css" type="text/css" media="all" />
+<script type="text/javascript" src="sw/spinningwheel.js?v=1.4"></script>
+
+<!-------------SMS---------------->
+
+
+
+<!-------------ISCROLL---------------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/iscroll.js"></script>
+
+<script type="text/javascript" language="JavaScript" src="plugins/jquery-mobile-iscrollview.js"></script>
+
+<!-------------CAMARA--------------->
+
+<script type="text/javascript" language="JavaScript" src="camera/camera.js"></script>
+
+<!-------------FAST CLICK---------------->
+
+<script type="text/javascript" language="JavaScript" src="plugins/fastclick.js"></script>
+
+
+
+</head>
+<body >
+
+<!--popups------------------------------>
+ 
+ <p id="popup" value="Ompliu tots els camps siusplau" hidden="true"/p>
+ <p id="popup1" value="Usuari desactivat. No pot enviar dades" hidden="true"/p>
+ 
+<!--grafiques------------------------------>
+ 
+ <p id="graf_ta_data" value="Data" hidden="true"/p>
+ <p id="graf_ta_si" value="Sistòlica" hidden="true"/p>
+ <p id="graf_ta_di" value="Diastòlica" hidden="true"/p>
+ <p id="noti_ti" value="Recordatori" hidden="true"/p>
+ <p id="noti_mi" value="Recordi enviar les pressions" hidden="true"/p>
+ <p id="graf_pa" value="Pressió arterial (mm Hg)" hidden="true"/p>
+ 
+<!--resultats------------------------------>
+ 
+ <p id="result_ok" value="Tot va bé" hidden="true"/p>
+ <p id="result_ko" value="Tot resta igual" hidden="true"/p>
+ <p id="result_idem" value="Hem vist els seus registres, no es preocupi li avançarem la visita." hidden="true"/p>
+
+<!--genere------------------------------>
+ 
+ <p id="gender_m" value="Masculí" hidden="true"/p>
+ <p id="gender_f" value="Femení" hidden="true"/p>
+ 
+<!--descàrrec-->
+
+ <p id="desc_txt" value="prova text descàrreg" hidden="true"/p>
+ 
+<!--patient status-->
+
+ <p id="patientStatus" value="" hidden="true"/p>
+ <p id="infoLink" value="" hidden="true"/p>
+ 
+ <!--PAD PAS----------------------------->
+ 
+ <p id="pad" value="" hidden="true"/p>
+ <p id="pas" value="" hidden="true"/p>
+ 
+         
+         
+
+
+</body>
+</html>

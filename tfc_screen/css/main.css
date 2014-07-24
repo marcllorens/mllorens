@@ -1,5 +1,8 @@
 /* CSS Document */
 
+
+
+
 /* INICI*/
 #fI{
     position:absolute;             /* centre pantalla */
@@ -14,7 +17,7 @@
 }
 
 
-s@keyframes fade {
+@keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
@@ -139,11 +142,11 @@ s@keyframes fade {
 	}
 	
 
-#container{
+#container, #container1{
 	width:90%;
 	margin:0 5px;
 	}
-#grf_table{
+#grf_table, #grf_table1{
 	width:100%;
 	margin-left:20px;
 	margin-top:30px}
@@ -151,19 +154,19 @@ s@keyframes fade {
 /*FORMULARI*/
 
 
-#field{
+#field, #fV{
 	background:#FFF;
 	margin:20px 20px;
 	}
 	
-#fF{
+#fF,#fF1,#Ff1{
 	display:block;	
 	}
 #Ff{
 	display:none;
 	}
 
-#ps1m, #ps1t{
+#ps1m, #ps1t, #pst1m, #pst1t{
 	width:30%;
 	min-with:600px;
 	float:left;
@@ -175,7 +178,7 @@ s@keyframes fade {
 	
 	}
 	
-#ps2m, #ps3m,#pst1m, #pst2m, #pst3m,#ps2t, #ps3t,#pst1t, #pst2t, #pst3t{
+#ps2m, #ps3m, #pst2m, #pst3m,#ps2t, #ps3t, #pst2t, #pst3t{
 	width:30%;
 	min-with:600px;
 	float:left;
@@ -196,42 +199,6 @@ s@keyframes fade {
 	
 	}	
 	
-#result{
-	margin:auto;
-	margin-left:30%;
-	}
-	
-#lab1 {
-	position: absolute;
-	left:30%;
-	min-with:1000px;
-	margin:auto;
-	}	
-
-	
-#date{
-	width:90%;
-	min-with:800px;
-	margin:10px;
-	}
-	
-#pahM{
-	width:90%;
-	min-with:600px;
-	margin: 20px 20%;
-	}	
-#fV{
-	width:100%;
-	min-with:700px;
-	margin:auto;
-	}	
-	
-#fT,#fS{
-	width:90%;
-	min-with:800px;
-	margin:auto;
-	}
-	
 
 /*resultats*/
 
@@ -246,15 +213,14 @@ s@keyframes fade {
 	margin-left: 10px;
 	float:left;
 	}
-#resultats{
+/*#resultats{
 	border: 2px #ddd solid;
     border-radius: 20px;
     padding: 20px;
 	
 	text-shadow:none;
 	background:#E2E2E2;
-	}
-	
+	}*/
 	
 #valoracio{
 	border: 2px #ddd solid;
@@ -347,3 +313,60 @@ th {
 	
 	
 }
+
+
+/*barra lateral*/
+
+#panel1{
+	background:#CCC;
+   color:white; 
+   font-weight: bold; 
+   width:200px;
+   position:absolute;
+  
+    }
+	
+	
+#panel	{
+	border:1px solid #c6c6c6;
+	background:#ccc;
+	color:#333;
+	text-shadow:0 1px 0 #fff;
+	font-weight:normal;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#e6e6e6),to(#ccc));
+	background-image:-webkit-linear-gradient(#e6e6e6,#ccc);
+	background-image:-moz-linear-gradient(#e6e6e6,#ccc);
+	background-image:-ms-linear-gradient(#e6e6e6,#ccc);
+	background-image:-o-linear-gradient(#e6e6e6,#ccc);
+	background-image:linear-gradient(#e6e6e6,#ccc);
+	}
+	
+#panel_header{
+	border:1px solid #456f9a;
+	background:#5e87b0;
+	color:#fff;
+	font-weight:bold;
+	text-shadow:0 -1px 1px #254f7a;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#81a8ce),to(#5e87b0));
+	background-image:-webkit-linear-gradient(#81a8ce,#5e87b0);
+	background-image:-moz-linear-gradient(#81a8ce,#5e87b0);
+	background-image:-ms-linear-gradient(#81a8ce,#5e87b0);
+	background-image:-o-linear-gradient(#81a8ce,#5e87b0);
+	background-image:linear-gradient(#81a8ce,#5e87b0);
+    }
+	
+#listv{
+	width:150px;
+	border:1px solid #ccc;
+	background:#eee;
+	font-weight:bold;
+	/*color:#444;*/
+	color:#06C;
+	text-shadow:0 1px 1px #f6f6f6;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
+	background-image:-webkit-linear-gradient(#fdfdfd,#eee);
+	background-image:-moz-linear-gradient(#fdfdfd,#eee);
+	background-image:-ms-linear-gradient(#fdfdfd,#eee);
+	background-image:-o-linear-gradient(#fdfdfd,#eee);
+	background-image:linear-gradient(#fdfdfd,#eee);
+	}

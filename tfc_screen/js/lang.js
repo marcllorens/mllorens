@@ -60,6 +60,11 @@ function selMain(){
 		$('a#ma')._t('ma');
 		$('a#mg')._t('mg');
 		$('a#mf')._t('mf');
+		//navbar1
+		$('a#mp1')._t('mp1');
+		$('a#ma1')._t('ma1');
+		$('a#mg1')._t('mg1');
+		$('a#mf1')._t('mf1');
 		//perfil
 		$('p#header_perfil')._t('header_perfil');
 		$('p#photo_txt')._t('photo_txt');
@@ -153,6 +158,11 @@ function selMain(){
 		"ma":"help",
 		"mg":"graph",
 		"mf":"mesures",
+		//navbar1
+		"mp1":"results",
+		"ma1":"coments",
+		"mg1":"graph",
+		"mf1":"videos",
 		//perfil
 		"header_perfil":"PROFILE",
 		"photo_txt":"Photo",
@@ -230,7 +240,7 @@ function selMain(){
 		//sms
 		"hsms":"Autentication ",
 		"bSMS":"Register",
-		"smstxt":"Wait or introduce the SMS code"
+		"smstxt":"Introduce the SMS code received"
 		
 	};
 	
@@ -244,6 +254,11 @@ function selMain(){
 		"ma":"ayuda",
 		"mg":"graficas",
 		"mf":"medidas",
+		//navbar1
+		"mp1":"resultados",
+		"ma1":"camentarios",
+		"mg1":"graficas",
+		"mf1":"videos",
 		//perfil
 		"header_perfil":"PERFIL",
 		"photo_txt":"Foto",
@@ -321,7 +336,7 @@ function selMain(){
 		//sms
 		"hsms":"Autentificacion ",
 		"bSMS":"Registrar",
-		"smstxt":"Espere o introduzca el codigo recibido por SMS"
+		"smstxt":"Introduzca el codigo recibido por SMS"
 		
 		
 			
@@ -338,6 +353,11 @@ function selMain(){
 		"ma":"ajuda",
 		"mg":"grafiques",
 		"mf":"mesures",
+		//navbar1
+		"mp1":"resultats",
+		"ma1":"comentaris",
+		"mg1":"grafiques",
+		"mf1":"videos",
 		//perfil
 		"header_perfil":"PERFIL",
 		"photo_txt":"Foto",
@@ -415,7 +435,7 @@ function selMain(){
 		//sms
 		"hsms":"Autenticació ",
 		"bSMS":"Registrar",
-		"smstxt":"Esperi o introdueixi el codi rebut per SMS"
+		"smstxt":"Introdueixi el codi rebut per SMS"
 			
 			
 	};

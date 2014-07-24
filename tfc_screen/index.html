@@ -7,16 +7,18 @@
 <link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
 <link href="css/main.css" rel="stylesheet" type="text/css"/>
 <link href="css/nav.css" rel="stylesheet" type="text/css"/>
+
 <script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
-<script type="text/javascript" charset="utf-8" src="js/graf.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 
-
 <!----------GRAFIQUES-------->
+
+<script type="text/javascript" charset="utf-8" src="js/graf.js"></script>
+
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
@@ -25,11 +27,8 @@
 <!----------WEB SERVICE DATA-------->
 
 <script type="text/javascript" language="JavaScript" src="js/server/server_pacient.js"></script>
-
 <script type="text/javascript" language="JavaScript" src="js/server/server_graph.js"></script>
-
 <script type="text/javascript" language="JavaScript" src="js/server/server_send.js"></script>
-
 
 <!----------NOTIFICACIONS-------->
 
@@ -50,13 +49,8 @@
 <link rel="stylesheet" href="sw/spinningwheel.css" type="text/css" media="all" />
 <script type="text/javascript" src="sw/spinningwheel.js?v=1.4"></script>
 
-<!-------------SMS---------------->
 
-<script type="text/javascript" language="JavaScript" src="plugins/smsplugin.js"></script>
-<script type="text/javascript" language="JavaScript" src="plugins/SmsInboxPlugin.js"></script>
-
-
-<!-------------ISCROLL---------------->
+<!-------------ISCROLL--------------->
 
 <script type="text/javascript" language="JavaScript" src="plugins/iscroll.js"></script>
 
@@ -70,43 +64,39 @@
 
 <script type="text/javascript" language="JavaScript" src="plugins/fastclick.js"></script>
 
+<!-------------MENU LATERAL----------------->
+
+
 
 <!-- CSS MENU INFERIOR-->
  
 <style type="text/css" id="styles" >
 
-.nav_bar .ui-btn .ui-btn-inner { padding-top: 40px !important; 
-}
-.nav_bar .ui-btn .ui-icon { 
-		width: 30px!important; 
-		height: 30px!important; 
-		margin-left: -15px !important; 
-		box-shadow: none!important; 
-		-moz-box-shadow: none!important; 
-		-webkit-box-shadow: none!important;
-		-webkit-border-radius: 0 !important; 
-		border-radius: 0 !important; 
-		}
 #mp .ui-icon { background:  url(img/icon_user.png) 50% 50% no-repeat; background-size: 38px 32px; }	
 #mf .ui-icon { background:  url(img/heart_icon&32.png) 50% 50% no-repeat;  background-size: 25px 25px; }
 #mg .ui-icon { background:  url(img/chart_line_icon&32.png) 50% 50% no-repeat;  background-size: 32px 32px; }
 #ma .ui-icon { background:  url(img/file-info.png) 50% 50% no-repeat;  background-size:32px 32px; }
 
 
-</style>
+#mp1 .ui-icon { background:  url(img/sq_plus_icon&32.png) 50% 50% no-repeat; background-size: 38px 32px; }	
+#mf1 .ui-icon { background:  url(img/playback_play_icon&32.png) 50% 50% no-repeat;  background-size: 25px 25px; }
+#mg1 .ui-icon { background:  url(img/chart_line_icon&32.png) 50% 50% no-repeat;  background-size: 32px 32px; }
+#ma1 .ui-icon { background:  url(img/spechbubble_sq_line_icon&32.png) 50% 50% no-repeat;  background-size:32px 32px; }
+
+#latbtn .ui-icon { background:  url(img/align_just_icon&32.png) 50% 50% no-repeat;  background-size:32px 32px; }
+</style>  <!--/css menu inferior-->
 
 </head>
 <body id="bdy">
-
-
-
 
 <!--INICI-->
 <div data-role="page" id="start" data-theme="d">
 
     
     <div id="fI">
-        <img class="blink" src="img/cor_blue.png" width="156" height="156">
+    <a   href="#formulari" data-icon="custom" >entra</a>
+    <a   href="#resultat" data-icon="custom" >directe</a>
+        <img class="blink" src="img/cor_blue.png" width="156" height="156"/>
    		<br/>
         <br/>
     	<div  id="blink" style="color:#06C;">
@@ -116,14 +106,14 @@
          
     </div>
 	
-</div>
+</div> <!-- /inici-->
 
 
 <!--TELEFON----------------------->
 
 <div data-role="page" id="tel1">
 	<div data-role="header" data-theme="b" >
-        <a id="aa" hidden="true" ></a>
+        <p id="aa" hidden="true" ></p> 
 		<p align="center" id="htel1">REGISTRE</p>
         <a  onClick="tel()" data-icon="arrow-r" style="margin-top:5px;" data-theme="c"  id="tele_btn" data-iconpos="right">OK</a>
     </div>
@@ -141,11 +131,10 @@
             <option value="3">English</option>
        </select>
        <hr style="margin-top:20px"/> 
-
- 	
+       
 	</div>
    
-</div>
+</div>  <!--/telèfon-->
 
 
 <!-- -SMS------------------->
@@ -163,11 +152,10 @@
 		
       	<input type="text" id="smsin" value="4790" placeholder="introdueixi SMS"  style="margin-top:20px"required/>
                
-        <img class="blink" src="img/heart_beat.png" width="110" height="110" style=" margin-left:30%; margin-top:40px" > 
+        <img class="blink" src="img/heart_beat.png" width="110" height="110" style=" margin-left:30%; margin-top:40px"/> 
 	</div>
 	
-</div>
-
+</div> <!-- /sms-->
 
    
 <!--PERFIL----------------------->
@@ -180,8 +168,8 @@
     
     <div data-role="content" data-iscroll>
     
-    <div id="prf">
-    		<img style="width:78px;height:94px;" id="smallImage" placeholder="afegir imatge" onClick="capturePhoto()" align="right">
+    	<div id="prf">
+    		<img style="width:78px;height:94px;" id="smallImage" placeholder="afegir imatge" onClick="capturePhoto()" align="right"/>
     		<p id="photo_txt">Foto</p>
  		
     		<hr id="barra" />
@@ -213,24 +201,25 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</div> <!--/perfil-->
 
 
 <!--FORMULARI-------------------------->
 
-<div data-role="page" id="formulari" data-theme="d" data-tap-toggle="false">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+<div data-role="page" id="formulari" data-theme="d" >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot"  >
     	<a id="cancel_btn" onClick="cancelV()" data-icon="delete" data-theme="c">Cancel</a>
         <p align="center" id="header_mesures">MESURES</p>
            
         <a  href="#ampa" data-iconpos="right" data-icon="arrow-r" id="send_btn" data-theme="c">Info</a>
    </div>
    <div id="scrl" data-iscroll>
-   <fieldset data-role="controlgroup" id="field">
-   		<button id="btM" data-theme="c" onClick="openMati()">MATI</button>
+     <fieldset data-role="controlgroup" id="field">
+   
+   	 <button id="btM" data-theme="c" onClick="openMati()">MATI</button>
      
      <div  data-role="content" id="fF" data-theme="c" hidden="false">
-    		<input type="number" id="ps1m" onClick="openPresio(), sel_sw(1)" readonly/>
+    		<input type="number" id="ps1m" onClick="openPresio(), sel_sw(1)" readonly />
         	<input type="number" id="pd1m" onClick="openPresio(), sel_sw(1)" readonly />    
             <hr />
         	<input type="number" id="ps2m" onClick="openPresio(), sel_sw(2)" readonly />
@@ -239,24 +228,27 @@
         	<input type="number" id="ps3m" onClick="openPresio(), sel_sw(3)" readonly /> 
         	<input type="number" id="pd3m" onClick="openPresio(), sel_sw(3)" readonly />
       </div>
+      
       <button id="btT"  data-theme="c" onClick="openTarda()">TARDA</button>
        
    	  <div  data-role="content" id="Ff"  data-theme="c" hidden="true" >
-   			<input type="number" id="ps1t"  onClick="openPresio(), sel_sw(4)" readonly />
-            <input type="number" id="pd1t" onClick="openPresio(), sel_sw(4)"readonly  />    
-           <hr />
+   			<input type="number" id="ps1t" onClick="openPresio(), sel_sw(4)" readonly />
+            <input type="number" id="pd1t" onClick="openPresio(), sel_sw(4)" readonly />    
+            <hr />
             <input type="number" id="ps2t" onClick="openPresio(), sel_sw(5)" readonly />
-            <input type="number" id="pd2t" onClick="openPresio(), sel_sw(5)" readonly  />    
+            <input type="number" id="pd2t" onClick="openPresio(), sel_sw(5)" readonly />    
             <hr />
             <input type="number" id="ps3t" onClick="openPresio(), sel_sw(6)" readonly /> 
             <input type="number" id="pd3t" onClick="openPresio(), sel_sw(6)" readonly />
       </div>
+      
       <button id="btS" data-theme="c" onClick="sendV()">ENVIAR</button>
-    </fieldset>
+      
+     </fieldset>
     </div>
   
     
-	<div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot" data-theme="b"data-tap-toggle="false" data-transition="none"  >
+	<div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot" data-theme="b">
      	<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul> 
        			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
@@ -266,13 +258,13 @@
 			</ul>
 		</div>
 	</div>
-</div> 
+</div>  <!--/formulari-->
  
  
 <!--GRAFIQUES------------------------------>
 
-<div data-role="page" id="grafiques" data-theme="d" data-tap-toggle="false">
-	<div data-role="header" data-theme="b" data-position="fixed"  data-id="myfoot" data-tap-toggle="false" data-transition="none" >
+<div data-role="page" id="grafiques" data-theme="d" >
+	<div data-role="header" data-theme="b" data-position="fixed"  data-id="myfoot" >
   		<p align="center" id="header_graph">  Evolució del pacient  </p>
 	</div>
 	<div data-role="content" data-iscroll>  
@@ -281,7 +273,7 @@
    		<div id="grf_table"> </div>
 	</div>
 
-	<div class="nav_bar" data-position="fixed" data-role="footer" data-id="myfoot"  data-theme="b" data-transition="none" data-tap-toggle="false">
+	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="b">
 		<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul>
        			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
@@ -291,26 +283,24 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</div> <!--/grafiques-->
 
 <!--AJUDA----------------------------->
 
-<div id="ajuda" data-role="page" data-theme="d" data-tap-toggle="false">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+<div id="ajuda" data-role="page" data-theme="d" >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
 		<p align="center" id="header_ajuda">Ajuda</p>
 	</div>
 	<div data-role="content" data-iscroll>	
 		<ul data-role="listview">
    			<li><a href="#ampa">Com pendre la pressió</a></li>
             <li><a href="#videos"> VIDEOS</a></li>
-            <li><a href="#prova_sms"> prova sms</a></li>
             <li><a id="ajuda_nav" href="#ajuda_navy"> Consells utilització</a></li>
   		</ul>
-     </div>
+    </div>
 	
-	 <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" data-tap-toggle="false" data-transition="none"  >
-    
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
+	<div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="b" >
+    	<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul>
        			<li><a  id="mp" href="#perfil" data-icon="custom" data-direction="reverse" >perfil</a></li>
             	<li><a  id="mf"  href="#formulari" data-icon="custom" data-direction="reverse">mesures</a></li>
@@ -319,76 +309,182 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</div> <!-- /ajuda-->
 
 <!--VALIDACIÓ------------------------>
 
 <div data-role="page" id="formVal" data-theme="d" >
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"   >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
     	<a data-rel="back" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
         <p align="center" id="header_validacio" >VALIDACIÓ</p>
-        <a   onClick="ok()"  data-iconpos="right" data-icon="arrow-r"  id="rsend_btn" data-theme="c">Enviar</a>
-		
+        <a   onClick="server_send()"  data-iconpos="right" data-icon="arrow-r"  id="rsend_btn" data-theme="c">Enviar</a>
 	</div> 
+    
+    <div id="scrl1" data-iscroll>
+	 <fieldset data-role="controlgroup" id="fV"  >
+    	 <button id="tM" data-theme="c" >MATI</button>
+         <div  data-role="content" id="fF1" data-theme="c">
+    		<input  id="pst1m" readonly required/>
+    		<input  id="pdt1m" readonly required/>
+    		<hr />
+    		<input  id="pst2m" readonly required/>
+    		<input  id="pdt2m" readonly required/>
+    		<hr />
+    		<input  id="pst3m" readonly required/>
+    		<input  id="pdt3m" readonly required/>
+         </div>
+         <button id="tT"  data-theme="c" >TARDA</button>
+    	 <div  data-role="content" id="Ff1" data-theme="c">
+    		<input  id="pst1t" readonly required/>
+    		<input  id="pdt1t" readonly required/>
+    		<hr />
+    		<input  id="pst2t" readonly required/>
+    		<input  id="pdt2t" readonly required/>
+    		<hr />
+    		<input  id="pst3t" readonly required/>
+    		<input  id="pdt3t" readonly required/>
+		 </div>
+         <button id="tS"  data-theme="c" ></button>
+	 </fieldset>
+    </div>
+</div> <!--/validadió-->
 
-	<div data-role="content" id="fV" data-theme="c" data-iscroll>
-    	<p id="tM"> MATI</p>
-    	<input  id="pst1m" readonly required/>
-    	<input  id="pdt1m" readonly required/>
-    	<hr />
-    	<input  id="pst2m" readonly required/>
-    	<input  id="pdt2m" readonly required/>
-    	<hr />
-    	<input  id="pst3m" readonly required/>
-    	<input  id="pdt3m" readonly required/>
-    	<p id="tT"> TARDA</p>
-    	<input  id="pst1t" readonly required/>
-    	<input  id="pdt1t" readonly required/>
-    	<hr />
-    	<input  id="pst2t" readonly required/>
-    	<input  id="pdt2t" readonly required/>
-    	<hr />
-    	<input  id="pst3t" readonly required/>
-    	<input  id="pdt3t" readonly required/>
 
+<!--MENU LATERAL -------------------------->
+
+  <div data-role="panel" id="panel">
+  
+   <div data-role="header" id="panel_header" > 
+		<p align="center" id="header_lateral" >Menu</p>
 	</div>
-	
-</div>
+    <div style="padding:15px">
+        
+        
+        	<button  id="listv" onClick="panel(2)" href="#resultat" >Resultat</button>	
+            <button  id="listv" onClick="panel(2)" href="#videos1" >Videos</button>	
+            <button  id="listv" onClick="panel(2)" href="#grafiques1" >Grafiques</button>	
+            <button  id="listv" onClick="panel(2)" href="#comentaris" >Comentaris</button>	
+            <button  id="listv" onClick="panel(2)" href="#formulari" >Tanca</button>		
+       		
+  	   
+    </div>
+  </div><!-- /menu lateral -->
 
 <!--RESULTATS -------------------------->
 
-<div data-role="page" id="resultat" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+<div style="position:absolute" data-role="page" id="resultat" data-theme="d">
+
+	<div data-role="header"  data-theme="b" > 
+    	<img id="latbtn" onClick="panel(1)" src='img/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
 		<p align="center" id="header_resultats">Resultats</p>
-        <a   href="#grafiques" data-iconpos="right" data-icon="check"  id="resend_btn"  data-theme="c">OK</a>
 	</div>
-	<div data-role="content" data-iscroll>
-    
+
+	<div id="conten"  data-role="content" data-iscroll>
     	<div id="field1" >
-    		<p id="resultats">Les seves pressions han estat rebudes correctament</p>
-        	
     		<div id="res">
-    			<img id="sem_gr" src="img/semafor_green.jpg" width="35" height="64"  hidden="true">
-    			<img id="sem_rd" src="img/semafor_red.jpg" width="35" height="84" hidden="true" >
-        	   	<img id="sem_yw" src="img/semafor_yellow.jpg" width="35" height="64" hidden="true" >
+    			<img id="sem_gr" src="img/semafor_green.jpg" width="35" height="64"  hidden="true"/>
+    			<img id="sem_rd" src="img/semafor_red.jpg" width="35" height="84" hidden="true"/ >
+        	   	<img id="sem_yw" src="img/semafor_yellow.jpg" width="35" height="64" hidden="true" />
     		</div>
 		
     	    <p id="valoracio"> ...</p>
-           
+            
         </div>
-        
     	<p id="recordatori"> Recordi pendre's la pressió i enviar els controls</p>
-
 	</div>	
-</div>
+    
+    <!--<div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b" >
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp1"  data-icon="custom" >Resultat</a></li>
+            	<li><a  id="mf1"  href="#videos1" data-icon="custom" >Videos</a></li>
+				<li><a  id="mg1" href="#grafiques1" data-icon="custom" >grafiques</a></li>
+            	<li><a  id="ma1" href="#comentaris" data-icon="custom" >Comentaris</a></li>
+			</ul>
+		</div>
+	</div>-->
+</div> <!--/resultats-->
+
+<!--VIDEOS 1-------------------------->
+
+<div data-role="page" id="videos1" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot1" >
+		<p align="center" id="header_videos1">Videos</p> 
+        <a href="#grafiques" data-iconpos="right" data-icon="check"  id="resend_btn"  data-theme="c">OK</a>  
+	</div>
+    
+	<div data-role="content" data-iscroll>
+    	<iframe src="http://www.youtube.com/embed/' + document.getElementById('infoLink').value'"  frameborder="0" allowfullscreen></iframe>
+    </div>
+    	
+    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b">
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp1" href="#resultat" data-icon="custom" data-direction="reverse">Resultat</a></li>
+            	<li><a  id="mf1"  data-icon="custom" >Videos</a></li>
+				<li><a  id="mg1" href="#grafiques1" data-icon="custom" >grafiques</a></li>
+            	<li><a  id="ma1"  href="#comentaris" data-icon="custom">Comentaris</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!--/videos1-->
+
+<!--GRAFIQUES 1 -------------------------->
+
+<div data-role="page" id="grafiques1" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot1" >
+   		<img id="latbtn" onClick="panel(1)" src='img/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+		<p align="center" id="header_grafiques1">Evolució del pacient</p>    
+	</div>
+    
+	<div data-role="content" data-iscroll> 
+        <div id="container1" > </div> 
+   		<div id="grf_table1"> </div>
+    </div>
+    	
+    <!--<div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b" >
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp1" href="#resultat" data-icon="custom" data-direction="reverse">Resultat</a></li>
+            	<li><a  id="mf1"  href="#videos1" data-icon="custom" data-direction="reverse">Videos</a></li>
+				<li><a  id="mg1"  data-icon="custom" data-direction="reverse">grafiques</a></li>
+            	<li><a  id="ma1"  href="#comentaris" data-icon="custom">Comentaris</a></li>
+			</ul>
+		</div>
+	</div>-->
+</div> <!--/grafiques1-->
+
+
+<!--COMENTARIS -------------------------->
+
+<div data-role="page" id="comentaris" data-theme="d">
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot1" >
+		<p align="center" id="header_comentaris">Comentaris</p>   
+	</div>
+    
+	<div data-role="content" data-iscroll>    </div>
+    	
+    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b" >
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+       			<li><a  id="mp1" href="#resultat" data-icon="custom" data-direction="reverse">Resultat</a></li>
+            	<li><a  id="mf1"  href="#videos1" data-icon="custom" data-direction="reverse">Videos</a></li>
+				<li><a  id="mg1" href="#grafiques1" data-icon="custom" data-direction="reverse">grafiques</a></li>
+            	<li><a  id="ma1"   data-icon="custom">Comentaris</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!--/comentaris-->
+
 
 <!--AMPA -------------------------->
 
 <div data-role="page" id="ampa" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
 		<p align="center" id="header_ampa">AMPA</p>
         <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
-	</div> 
+	</div>
+     
 	<div data-role="content" data-iscroll>
     	<p id="ampa_postura_h" style="font-weight:bold; color:#06C;">Postura:</p>
     	<p id="ampa_postura">Assegut o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.
@@ -404,14 +500,14 @@ Cal estar en repòs al menys cinc minuts abans de la mesura.</p>
 Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.</p> 
 	</div>	
     
-</div>
+</div> <!--/ampa-->
 
 <!--AJUDA NAVEGACIO-------------------------->
 
 <div data-role="page" id="ajuda_navy" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
 		<p align="center" id="header_ajuda_n">AJUDA</p>
-        <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
+        <a onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
 	</div> 
     
 	<div data-role="content" data-iscroll>
@@ -425,7 +521,7 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
     	<p id="ajn_help" hidden="true">...</p>
 	</div>	
     
-     <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="d" data-tap-toggle="false" data-transition="none"  >
+    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="d" >
 		<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul>
        			<li><a  id="mp"  onClick="x1()" data-icon="custom" >perfil</a></li>
@@ -435,36 +531,34 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
 			</ul>
 		</div>
 	</div>
-</div>
+</div> <!-- /ajuda navegacio-->
 
 <!--VIDEOS-------------------------->
 
-
 <div data-role="page" id="videos" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
+	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" >
 		<p align="center" id="header_videos">VIDEOS</p>
-        <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
+        <a onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
 	</div> 
 	<div data-role="content" >	
-		<ul data-role="listview">
-   			
+		<ul data-role="listview">	
            <li><iframe src="http://www.youtube.com/embed/qoXcpt58wik" frameborder="0" allowfullscreen></iframe></li>
-           
             <li><iframe src="http://www.youtube.com/embed/wXDEhqKCa5I" frameborder="0" allowfullscreen></iframe></li>
             <li><iframe src="http://www.youtube.com/embed/' + document.getElementById('infoLink').value'"  frameborder="0" allowfullscreen></iframe></li>
   		</ul>
 	</div>
-    
-    
-</div>
+</div> <!--/videos-->
 
- 
-<!--popups------------------------------>
- 
+<!--SUPORT-------------------------->
+
+<div hidden="true">
+
+ <!--popups------------------------------>
+
  <p id="popup" value="Ompliu tots els camps siusplau" hidden="true"/p>
  <p id="popup1" value="Usuari desactivat. No pot enviar dades" hidden="true"/p>
  
-<!--grafiques------------------------------>
+ <!--grafiques------------------------------>
  
  <p id="graf_ta_data" value="Data" hidden="true"/p>
  <p id="graf_ta_si" value="Sistòlica" hidden="true"/p>
@@ -473,65 +567,34 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
  <p id="noti_mi" value="Recordi enviar les pressions" hidden="true"/p>
  <p id="graf_pa" value="Pressió arterial (mm Hg)" hidden="true"/p>
  
-<!--resultats------------------------------>
+ <!--resultats------------------------------>
  
+ <p id="resultats" value="Les seves pressions han estat rebudes correctament" hidden="true"/p>
  <p id="result_ok" value="Tot va bé" hidden="true"/p>
  <p id="result_ko" value="Tot resta igual" hidden="true"/p>
  <p id="result_idem" value="Hem vist els seus registres, no es preocupi li avançarem la visita." hidden="true"/p>
 
-<!--genere------------------------------>
+ <!--genere------------------------------>
  
  <p id="gender_m" value="Masculí" hidden="true"/p>
  <p id="gender_f" value="Femení" hidden="true"/p>
  
-<!--descàrrec-->
+ <!--descàrrec-->
 
  <p id="desc_txt" value="prova text descàrreg" hidden="true"/p>
  
-<!--patient status-->
+ <!--patient status-->
 
  <p id="patientStatus" value="" hidden="true"/p>
  <p id="infoLink" value="" hidden="true"/p>
-         
-
  
-<!--PROVA SMS------------------------->
-
-<div data-role="page" id="prova_sms" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myfoot" data-tap-toggle="false" data-transition="none"  >
-		<p align="center" id="header_prova_sms">PROVA SMS</p>
-        <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
-	</div> 
-    
-	<div data-role="content" >
-    <button onClick="prova_sms()">sms</button>
-    
-	<script>
-	var smsInboxPlugin = cordova.require('cordova/plugin/SmsInboxPlugin');
-	 smsInboxPlugin.isSupported ((function(supported) {
-    if(supported) 
-      alert("SMS supported !");
-    else
-      alert("SMS not supported");
-  }), function() {
-    alert("Error while checking the SMS support");
-  });
-  smsInboxPlugin.startReception (function(msg) {
-    alert(msg);
-  }, function() {
-    alert("Error while receiving messages");
-  });
-	
-	smsInboxPlugin.stopReception (function() {
-    alert("Correctly stopped");
-  }, function() {
-    alert("Error while stopping the SMS receiver");
-  });
-	</script>
-     
-	</div>	
-</div>
-
+ <!--PAD PAS----------------------------->
+ 
+ <p id="pad" value="" hidden="true"/p>
+ <p id="pas" value="" hidden="true"/p>
+ 
+</div> <!--/suport-->
+         
 
 </body>
 </html>

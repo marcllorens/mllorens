@@ -14,7 +14,7 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restList/'+ toke
      table+='</table>';
 	 
      $("#grf_table").html(table);	
-		
+	 $("#grf_table1").html(table);	
 	 grph();
 });
 
