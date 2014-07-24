@@ -92,7 +92,7 @@ function sms(){
 
 function sendV(){ //obrir pàgina de validació
 	
-	/*if(document.getElementById('notificacions').value ==0){alert(document.getElementById('popup1').innerHTML);}
+	if(document.getElementById('notificacions').value ==0){alert(document.getElementById('popup1').innerHTML);}
 	else if((document.getElementById('pd1m').value == null || document.getElementById('pd1m').value == '') ||(document.getElementById('pd2m').value == null || document.getElementById('pd2m').value == '')||(document.getElementById('pd3m').value == null || document.getElementById('pd3m').value == '')||(document.getElementById('pd1t').value == null || document.getElementById('pd1t').value == '')||(document.getElementById('pd2t').value == null || document.getElementById('pd2t').value == '')||(document.getElementById('pd3t').value == null || document.getElementById('pd3t').value == '')){ alert(document.getElementById('popup').innerHTML); }
 	else{ 
 	
@@ -108,10 +108,10 @@ function sendV(){ //obrir pàgina de validació
 	document.getElementById('pst2t').value=document.getElementById('ps2t').value;
 	document.getElementById('pdt2t').value=document.getElementById('pd2t').value;
 	document.getElementById('pst3t').value=document.getElementById('ps3t').value;
-	document.getElementById('pdt3t').value=document.getElementById('pd3t').value;*/
+	document.getElementById('pdt3t').value=document.getElementById('pd3t').value;
 	$.mobile.changePage('#formVal');
 	
-	//}
+	}
 	
 };  //  /obrir pag validació
 
@@ -372,3 +372,28 @@ function panel(a){
  	}
 }
  	
+	
+function p1(){
+	panel(2);
+	$.mobile.changePage('#resultat');
+	}
+	
+function p2(){
+	panel(2);
+	$.mobile.changePage('#videos1');
+	}
+
+function p3(){
+	panel(2);
+	$.mobile.changePage('#grafiques1');
+	}
+	
+function p4(){
+	panel(2);
+	$.mobile.changePage('#comentaris');
+	}
+	
+function p5(){
+	panel(2);
+	$.mobile.changePage('#formulari');
+	}
